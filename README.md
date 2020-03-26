@@ -13,7 +13,7 @@
 ## Browser Support
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
---- | --- | --- | --- | --- | --- |
+--- | --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 10+ ✔ |
 
 
@@ -64,7 +64,7 @@ $ npm run build
 
 
 ### WinOs
- - MacOS 환경 명령어 참고
+ - MacOS 명령어 참고
  - 윈도 환경에서 테스트가 미흡합니다.
  - 설치 중 문제가 생기면 FED 팀에 문의바랍니다.
 
