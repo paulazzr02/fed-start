@@ -1,0 +1,46 @@
+//
+// BASE > BASE
+// --------------------------------------------------
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+button,
+input {
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+body {
+  font: 16px/1.5 'Noto Sans Korean', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+
+  a {
+    display: inline-block;  /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
+

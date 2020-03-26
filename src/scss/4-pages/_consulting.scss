@@ -1,0 +1,110 @@
+//
+// PAGES > 데일리 컨설팅
+// ------------------------------------------------------------
+
+// 고객 리스트
+
+.btn-outline-secondary.dropdown-toggle + .dropdown-menu {
+  min-width: 88px;
+  margin-top: 8px;
+
+  .dropdown-item {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    color: $darker;
+  }
+
+  .dropdown-item:not(:last-child) {
+    border-bottom: 1px solid $border-color;
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    color: #fff;
+  }
+}
+
+.list {
+  .list-item {
+    padding: 15px 20px;
+
+    &:hover,
+    &:focus {
+      background-color: #f6fafb;
+      text-decoration: none;
+    }
+
+    .badge {
+      top: 15px;
+      left: 58px;
+    }
+  }
+}
+
+.list.scrollable {
+  min-height: 400px;
+}
+
+@media screen and (min-width: 1280px) {
+  .list.scrollable {
+    height: 700px;
+  }
+}
+
+.list-item {
+  @include clearfix();
+
+  i[class^=inco-] {
+    color: $primary;
+    font-size: 32px;
+    border-radius: $border-radius;
+  }
+}
+
+
+// 하루 식사
+
+.message-preview {
+  margin-top: 20px;
+  padding-left: 63px;
+
+  .push-img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+}
+
+.push-img-label {
+  padding: 8px 15px;
+  background-color: $primary;
+  color: #fff;
+  border-radius: $border-radius;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.push-img {
+  border-radius: $border-radius;
+}
+
+.icon-btn.dropdown-toggle {
+  i {
+    font-weight: 500;
+  }
+
+  &[aria-expanded=true] {
+    color: $primary;
+  }
+
+  &:after {
+    content: '';
+    display: none;
+  }
+}
+
+.icon-btn.dropdown-toggle + .dropdown-menu {
+  min-width: auto;
+}
+
+

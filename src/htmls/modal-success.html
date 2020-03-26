@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  @@include('meta.html')
+</head>
+
+<body>
+  <!--
+    Modal : modal-success
+    수직중양정렬 : modal-dialog-centered (o)
+    애니메이션 : fade (x)
+  -->
+  
+  <div class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-success">
+      <div class="modal-content">
+
+        <!-- modal-header -->
+        <div class="modal-header">
+          <h5 class="sr-only">삭제 알림</h5>
+        </div>
+
+        <!-- modal-body -->
+        <div class="modal-body">
+          <i class="ico-success xi-check-circle-o"></i>
+          <p class="emphasis">등록 완료</p>
+          <p>파일이 등록되었습니다.</p>
+        </div>
+
+        <!-- modal-footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn-success">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @@include('commonJs.html')
+  
+  <script>
+  $(document).ready(function(){
+    $('.modal').show();
+  });
+  </script>
+</body>
+
+</html>

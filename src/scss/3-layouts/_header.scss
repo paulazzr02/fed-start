@@ -1,0 +1,16 @@
+//
+// LAYOUTS > HEADER STYLES
+// ------------------------------------------------------------
+
+.h1 {
+  margin: 25px 0 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $border-color;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}

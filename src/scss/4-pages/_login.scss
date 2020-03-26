@@ -1,0 +1,59 @@
+//
+// LAYOUTS > LOGIN STYLES
+// ------------------------------------------------------------
+
+.login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  margin-top: -50px;
+
+  .form-control,
+  .btn-login {
+    height: 60px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .form-control {
+    color: $body-color;
+    font-size: 18px;
+  }
+
+  .btn-login {
+    margin-top: 60px;
+    background-color: #008889;
+    color: #fff;
+    font-size: 20px;
+    @extend .btn;
+    @extend .btn-lg;
+    @extend .btn-block;
+
+    &:hover, &:focus {
+      background-color: darken(#008889, 2%);
+      color: #fff;
+    }
+  }
+
+  .form-text {
+    color: #fff;
+    text-align: right;
+
+    a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    a:first-child {
+      float: left;
+    }
+  }
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 50px;
+}

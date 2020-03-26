@@ -1,0 +1,60 @@
+{
+  "name": "project-name",
+  "version": "0.0.0",
+  "description": "A description for your project",
+  "main": "./dist/your-main-js-file.js",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "css-loader": "^3.4.2",
+    "expose-loader": "^0.7.5",
+    "file-loader": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-favicons": "^2.4.0",
+    "gulp-file-include": "^2.1.1",
+    "gulp-iconfont": "^10.0.3",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.0.1",
+    "node-sass": "^4.13.1",
+    "rimraf": "^3.0.0",
+    "underscore": "^1.9.2",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4.41.5",
+    "webpack-stream": "^5.2.1",
+    "yargs": "^15.1.0"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.8.4",
+    "bootstrap": "^4.3.1",
+    "classlist.js": "git+https://github.com/eligrey/classList.js.git",
+    "core-js": "^3.6.4",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "retinajs": "^2.1.3",
+    "simple-scrollbar": "^0.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp --production"
+  },
+  "author": "Insilicogen <info@insilicogen.com> (https://www.insilicogen.com)",
+  "private": true,
+  "engines": {
+    "node": ">=10.17.0"
+  }
+}

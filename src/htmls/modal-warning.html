@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  @@include('meta.html')
+</head>
+
+<body>
+  <!--
+    Modal : modal-warning
+    수직중양정렬 : modal-dialog-centered (o)
+    애니메이션 : fade (x)
+  -->
+  
+  <div class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-warning">
+      <div class="modal-content">
+
+        <!-- modal-header -->
+        <div class="modal-header">
+          <h5 class="sr-only">삭제 알림</h5>
+        </div>
+
+        <!-- modal-body -->
+        <div class="modal-body">
+          <i class="ico-warning xi-error-o"></i>
+          <p class="emphasis">입력한 정보로 등록하시겠습니까?</p>
+          <p>필요하시면 차후에 수정가능합니다.</p>
+        </div>
+
+        <!-- modal-footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn-outline-secondary" data-dismiss="modal">취소</button>
+          <button type="button" class="btn-warning">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @@include('commonJs.html')
+  
+  <script>
+  $(document).ready(function(){
+    $('.modal').show();
+  });
+  </script>
+</body>
+
+</html>

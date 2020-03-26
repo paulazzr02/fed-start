@@ -1,0 +1,45 @@
+//
+// Components > Card
+// --------------------------------------------------
+
+//
+// 카드 기본 스타일
+//
+
+[class^=card] {
+  display: block;
+  float: none;
+}
+
+.card-default {
+  @extend .card;
+  display: block;
+  flex: none;
+  overflow: hidden;
+  border-radius: $border-radius;
+
+  .card-header,
+  .card-footer {
+    background-color: inherit;
+  }
+
+  .card-header {
+    .h3 {
+      margin: 0;
+    }
+  }
+}
+
+.card-shadow {
+  @extend .card-default;
+  border: 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+
+  &:not(:last-child) {
+    margin-bottom: 1.875rem;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+}

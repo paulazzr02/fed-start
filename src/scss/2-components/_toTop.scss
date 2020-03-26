@@ -1,0 +1,23 @@
+//
+// Components > Scroll To Top
+// --------------------------------------------------
+
+.to-top {
+  z-index: 15;
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border: 1px solid #f2f2f2;
+  -webkit-box-shadow: 3px 7px 22px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 3px 7px 22px rgba(0, 0, 0, .2);
+  box-shadow: 3px 7px 22px rgba(0, 0, 0, .2);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  color: #666;
+  text-align: center;
+}

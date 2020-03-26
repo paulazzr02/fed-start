@@ -1,0 +1,17 @@
+// --------------------------------------------------
+// Base
+// --------------------------------------------------
+
+// Assets
+
+@import '../vendor/xeicon';
+@import '../vendor/notosanskr';
+
+
+// Configuration
+
+@import 'var';
+@import '../mixins/index';
+@import '../utils/index';
+@import 'bootstrap/scss/bootstrap';
+@import 'base';

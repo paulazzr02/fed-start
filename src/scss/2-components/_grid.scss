@@ -1,0 +1,21 @@
+//
+// Components > Grid
+// --------------------------------------------------
+
+
+.row,
+.form-row {
+  display: block;
+  flex: none;
+  -ms-flex: none;
+  @include clearfix();
+
+  > .col,
+  > [class*='col-'] {
+    // Override bootstrap 4 flex
+    display: block;
+    flex: none;
+    -ms-flex: none;
+    float: left;
+  }
+}

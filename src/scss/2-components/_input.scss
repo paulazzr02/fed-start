@@ -1,0 +1,136 @@
+//
+// Components > Input
+// --------------------------------------------------
+
+//== 검색박스
+//
+
+.search-input-group {
+  position: relative !important;
+
+  .search-input {
+    position: relative;
+    padding-left: 1.875rem;
+    //padding-right: 1.875rem;
+    @extend .form-control;
+    //@extend .form-control-sm;
+  }
+
+  .search-btn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    //right: 0;
+    transform: translateY(-50%);
+    font-size: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    @extend .btn;
+    @extend .btn-sm;
+  }
+}
+
+
+//== 달력
+//
+
+
+// 싱글 달력
+
+.date-input-group {
+  position: relative !important;
+
+  .date-input {
+    @extend .form-control;
+    position: relative;
+    padding-right: 1.875rem;
+  }
+
+  .date-icon {
+    position: absolute;
+    top: 50%;
+    right: 0.625rem;
+    transform: translateY(-50%);
+
+    i {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+// 기간 달력
+
+.date-range {
+  display: table;
+  position: relative;
+  width: 100%;
+
+  .date-input-group,
+  .date-range-dash {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .date-input-group {
+    width: 45%;
+  }
+
+  .date-range-dash {
+    width: 10%;
+    text-align: center;
+  }
+}
+
+
+//== 커스텀 체크 박스
+//
+
+$custom-checkbox-size: 20px;
+
+.custom-checkbox {
+  @extend .custom-control;
+}
+
+.custom-checkbox-inline {
+  @extend .custom-checkbox;
+  @extend .custom-control-inline;
+}
+
+.custom-control-label {
+  &:before,
+  &:after {
+    top: 0.125rem;
+    width: $custom-checkbox-size;
+    height: $custom-checkbox-size;
+  }
+
+  &:before {
+    border-color: #aeb9cc;
+  }
+}
+
+.custom-checkbox,
+.custom-checkbox-inline {
+  .custom-control-label::before {
+    border-radius: 0.3125rem;
+  }
+}
+
+.custom-file-label {
+  margin-bottom: 0;
+  border-color: #fff;
+  cursor: zoom-in;
+  z-index: 9;
+
+   &:after {
+     top: -1px;
+     bottom: 0;
+     border: 1px solid $border-color;
+     border-radius: $border-radius-sm;
+     font-family: 'xeicon' !important;
+     font-size: 1rem;
+     background-color: #fff;
+     content: '\eb7e';
+   }
+ }
+

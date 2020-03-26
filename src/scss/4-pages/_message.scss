@@ -1,0 +1,92 @@
+//
+// PAGES > 그룹 메세지
+// ------------------------------------------------------------
+
+// 고객 리스트
+//
+
+.list-item {
+  display: block;
+  position: relative;
+  text-align: left;
+  line-height: 1.5;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  .h4 {
+    display: block;
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  .avatar {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .badge {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 43px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.bg-selected,
+tr.bg-selected th,
+tr.bg-selected td {
+  background-color: #f6fafb;
+}
+
+// (모달) 그룹 메세지 보내기
+//
+
+.modal-msg {
+  max-width: 376px;
+}
+
+.modal-header {
+  .num {
+    color: $blue;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -1px;
+  }
+}
+
+.modal-footer {
+  .msg-btn-group {
+    width: auto;
+  }
+}
+
+.message-container {
+  position: relative;
+  padding-left: 63px;
+
+  .avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+  }
+
+  .form-control {
+    border-color: #fff;
+    background-color: #fff;
+  }
+}
+
+.message-toolbar {
+  .icon-btn {
+    font-size: 20px;
+    color: $blue;
+  }
+}
+

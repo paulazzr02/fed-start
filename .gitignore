@@ -1,0 +1,20 @@
+
+# Logs
+*.log
+
+# Config files
+.idea/
+.cache/
+.sass-cache
+
+# Mac system files
+.DS_store
+
+# node_modules folder
+node_modules
+
+# Directories
+dist/
+
+# Packages
+*.zip

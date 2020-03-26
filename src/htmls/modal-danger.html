@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  @@include('meta.html')
+</head>
+
+<body>
+  <!--
+    Modal : modal-danger
+    수직중양정렬 : modal-dialog-centered (o)
+    애니메이션 : fade (x)
+  -->
+  
+  <div class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-danger">
+      <div class="modal-content">
+
+        <!-- modal-header -->
+        <div class="modal-header">
+          <h5 class="sr-only">삭제 알림</h5>
+        </div>
+
+        <!-- modal-body -->
+        <div class="modal-body">
+          <i class="ico-danger xi-close-circle-o"></i>
+          <p class="emphasis">잘못된 접근 방식입니다.</p>
+          <p>권한이 없거나 잘못된 접근입니다. 관리자에게 문의바랍니다.</p>
+        </div>
+
+        <!-- modal-footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn-danger" data-dismiss="modal">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @@include('commonJs.html')
+  
+  <script>
+  $(document).ready(function() {
+    $('.modal').show();
+  });
+  </script>
+</body>
+
+</html>

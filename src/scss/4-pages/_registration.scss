@@ -1,0 +1,133 @@
+//
+// PAGES > 고객 등록
+// ------------------------------------------------------------
+
+.toolbar {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.toolbar.sticky-bottom {
+  position: absolute;
+  //position: fixed;
+  bottom: 0;
+  right: 0;
+  left: $contextual-sidebar-width;
+  box-shadow: inset 0 1px 0 0 $border-color;
+  text-align: right;
+}
+
+@media (max-width: 1279px) {
+  .toolbar.sticky-bottom {
+    left: $icon-sidebar-width;
+  }
+}
+
+// 고객 등록 > 일괄 등록
+//
+
+.custom-file-upload {
+  padding: 60px;
+  background-color: #f6fafb;
+  border: 1px dashed $border-color;
+  text-align: center;
+  border-radius: $border-radius-lg;
+  @include clearfix;
+
+  .file-upload-run {
+    label {
+      display: inline-block;
+      margin: 0 auto 20px;
+      padding: 9px 18px;
+      color: #fff;
+      vertical-align: middle;
+      background-color: $primary;
+      cursor: pointer;
+      border: 1px solid $primary;
+      border-bottom-color: $primary;
+      border-radius: 0.4375rem;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+    input[type='file'] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  }
+  .file-upload-name,
+  .file-upload-placeholder {
+    color: #313c5b;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+.custom-file-upload-info {
+  //color: $gray;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  //padding-top: 35px;
+
+  a {
+    margin-left: 5px;
+    color: #3177c7;
+  }
+}
+
+.avatar-file-upload {
+  display: inline-block;
+  position: relative;
+  background: transparent url(../images/img-userdefault.png) no-repeat 0 0;
+  background-size: cover;
+
+  label {
+    display: inline-block;
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+    margin: 0;
+    padding: 2px 5px;
+    border-radius: $border-radius;
+    vertical-align: middle;
+    background-color: $primary;
+    text-align: center;
+    cursor: pointer;
+
+    i {
+      font-size: 1.5rem;
+      background: $primary;
+      color: #fff;
+    }
+  }
+
+  input[type='file'] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  .file-upload-view {
+    //overflow: hidden;
+    //border-radius: 50%;
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+
+    }
+  }
+}

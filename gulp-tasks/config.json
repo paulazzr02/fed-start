@@ -1,0 +1,55 @@
+{
+  "COMPATIBILITY": [
+    "last 2 versions",
+    "ie >= 9",
+    "ios >= 10"
+  ],
+  "CSS": {
+    "src": "/scss/**/*.scss",
+    "dest": "/css"
+  },
+  "ERROR": "Error: <%= error.message %>",
+  "FAVICONS": {
+    "entry": "/images/favicon-src.png",
+    "dest": "/favicons"
+  },
+  "FONTS": {
+    "src": "/fonts/**/*.{eot,otf,svg,ttf,woff,woff2}",
+    "dest": "/fonts"
+  },
+  "HTMLS": {
+    "src": "/htmls/**/*.html",
+    "dest": "/",
+    "basePath": "/htmls/templates"
+  },
+  "ICONS": {
+    "src": "/icons/**/*.svg",
+    "dest": "/icons",
+    "templates": "/icons/templates/"
+  },
+  "IMAGES": {
+    "src": "/images/**/*.{gif,jpg,jpeg,png,svg}",
+    "dest": "/images"
+  },
+  "JS": {
+    "src": "/js/**/*.js",
+    "dest": "/js"
+  },
+  "PATH": {
+    "src": "./src",
+    "dest": "./dist",
+    "vendor": "./node_moduls"
+  },
+  "SERVER": {
+    "port": 3000
+  },
+  "APP": {
+    "server": false,
+    "proxyServer": "http://127.0.0.1:8000",
+    "watchFiles": [
+      "./**/*.{scss,css,html,js}",
+      "../**/templates/**/*.html",
+      "!node_modules/"
+    ]
+  }
+}
