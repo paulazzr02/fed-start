@@ -1,5 +1,15 @@
 # FED-starter
 
+## GIT
+### 브랜치 규칙
+항상 유지되는 메인 브랜치들 : master, develop, 일정기간동안만 유지되는 브랜치들 : feature, release
+  - master : 최종 브랜치
+  - develop : 출시 버전 개발 브랜치
+  - feature : 기능 개발 브랜치
+  - release : 이번 출시 버전 준비 브랜치
+
+### 업데이트 내역
+
 ## Browser Support
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
@@ -65,14 +75,3 @@ $ npm run build
   - Sass compilation (and minification/autoprefixing in production)
   - ES Modules (by Webpack)
   - Minification
-
-
-## GIT
-항상 유지되는 메인 브랜치들 : master, develop
-일정기간동안만 유지되는 브랜치들 : feature, release
-  - master : 최종 브랜치
-  - develop : 출시 버전 개발 브랜치
-  - feature : 기능 개발 브랜치
-  - release : 이번 출시 버전 준비 브랜치
-
-### 업데이트 내역
