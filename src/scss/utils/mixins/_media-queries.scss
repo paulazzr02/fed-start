@@ -1,0 +1,32 @@
+/*
+ * MIXIN: Responsive Media Queries.
+ * _variables.scss 에서 $breakpoints 변수값 import 함.
+ * USAGE:
+ * @include respond-to(medium) { color: green; }
+ */
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+      /* Landscape phones and down (<=480) */
+      @media (max-width: #{map-get($breakpoints, sm)-1}px) { @content; }
+      // @media (max-width: 480px) { @content; }
+  }
+  @else if $media == mobile {
+      /* Landscape phone to portrait tablet (<=767) */
+      @media (max-width: #{map-get($breakpoints, md)-1}px) { @content; }
+      // @media (max-width: 767px) { @content; }
+  }
+  @else if $media == tablet {
+      /* Portrait tablet to landscape and desktop (>=768, <1199) */
+      @media (min-width: #{map-get($breakpoints, md)}px) and (max-width: #{map-get($breakpoints, xl)-1}px) { @content; }
+      // @media (min-width: 768px) and (max-width: 1199px) { @content; }
+  }
+  @else if $media == desktop {
+      /* Large desktop (>=1200) */
+      @media (min-width: #{map-get($breakpoints, xl)}px) { @content; }
+      // @media (min-width: 1200px) { @content; }
+  }
+  @else {
+      @media only screen and (max-width: #{$media}px) { @content; }
+  }
+}

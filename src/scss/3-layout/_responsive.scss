@@ -1,0 +1,6 @@
+body {
+  @include respond-to(handhelds) { background-color: #10375c; }
+  @include respond-to(mobile) { background-color: #844685; }
+  @include respond-to(tablet) { background-color: #f3c623; }
+  @include respond-to(desktop) { background-color: #faf4ff; }
+}

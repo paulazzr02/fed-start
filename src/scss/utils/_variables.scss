@@ -1,0 +1,44 @@
+/*
+ * Variables
+ */
+
+// Color system
+$gray-lightester: #f8f9fa !default;
+$gray-lightest:   #e9ecef !default;
+$gray-lighter:    #dee2e6 !default;
+$gray-light:      #ced4da !default;
+$gray:            #adb5bd !default;
+$gray-dark:       #6c757d !default;
+$gray-darker:     #495057 !default;
+$gray-darkest:    #343a40 !default;
+$gray-darkester:  #212529 !default;
+
+// Theme colors
+$primary-color:     #00babc !default;
+$secondary-color:   $gray !default;
+$tertiary-color:    purple !default;
+$success-color:     $primary-color !default;
+$info-color:        green !default;
+$warning-color:     yellow !default;
+$danger-color:      #f65854 !default;
+
+$body-color:        $gray !default;
+$link-color:        $body-color !default;
+$link-hover-color:  $primary-color !default;
+$border-color:      $gray !default;
+
+// Grid
+$breakpoints: (
+  xs: 0,   // Extra small screen / phone
+  sm: 480, // Small screen / phone
+  md: 768, // Medium screen / tablet
+  lg: 992, // Large screen / desktop
+  xl: 1200 // Extra large screen / wide desktop
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);

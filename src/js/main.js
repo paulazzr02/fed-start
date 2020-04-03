@@ -19,6 +19,41 @@ const dataAutoResizing = (el) => {
   element.removeAttribute('data-autoresize');
 }
 
+// function scrollToTop() {
+//   (function smoothscroll() {
+//     var y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+//     if (y > 0) {
+//       window.requestAnimationFrame(smoothscroll);
+//       window.scrollTo(0, y - (y / 5));
+//     }
+//   })();
+// }
+
+// const bodyEl = document.querySelector('body'),
+//     headerEl = document.querySelector('header'),
+//     mainEl = document.querySelector('.main-container'),
+//     uHeight = utilbar.offsetHeight;
+//
+// const scrollToTopBtn = document.querySelector('.scroll-to-top'),
+//     onWindowScrollClass = 'onWindowScroll',
+//     showClass = 'show';
+//
+// function onScroll() {
+//     window.addEventListener('scroll', _.throttle(callbackFunc, 150));
+//     // window.addEventListener("scroll", callbackFunc);
+//
+//     function callbackFunc() {
+//         var y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+//         if (y > uHeight) {
+//             bodyEl.classList.add(onWindowScrollClass);
+//             scrollToTopBtn.classList.add(showClass);
+//         } else {
+//             bodyEl.classList.remove(onWindowScrollClass);
+//             scrollToTopBtn.classList.remove(showClass);
+//         }
+//     }
+// }
+
 const app = () => {
     const scrollDivs = document.querySelectorAll('.js-simple-scrollbar');
     scrollDivs.forEach((el) => {
@@ -29,6 +64,8 @@ const app = () => {
     autoResizeableTextareas.forEach((el) => {
       dataAutoResizing(el)
     });
+
+    // onScroll();
 };
 document.addEventListener('DOMContentLoaded', app);
 

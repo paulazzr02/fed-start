@@ -1,11 +1,81 @@
-//
-// BASE > BASE
-// --------------------------------------------------
+/*
+ * Base
+ */
+
+// Box sizing rules
+article,
+aside,
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
 
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// Remove default padding
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+// Remove default margin
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans Korean', sans-serif;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea {
+  resize: none;
 }
 
 button {
@@ -22,25 +92,50 @@ input {
   border: none;
 }
 
-textarea {
-  resize: none;
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
-body {
-  font: 16px/1.5 'Noto Sans Korean', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+img,
+video {
+  max-width: 100%;
 }
 
+img {
+  border-style: none;
+}
+
+// caption only for screen-reader
+// caption {
+//   width: 100%;
+//   height: 1px;
+//   padding: 0;
+//   margin: -1px 0 0 !important;
+//   overflow: hidden;
+//   font-size: 0;
+//   line-height: 0;
+//   text-indent: -9999px;
+// }
+
+[hidden] {
+  display: none !important;
+}
+
+[disabled],
 .disabled {
   cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
-
-  a {
-    display: inline-block;  /* For IE11/ MS Edge bug */
-    pointer-events: none;
-    text-decoration: none;
-  }
 }
 
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// only for screen-reader
+.sr-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  left: -9999px;
+  top: -9999px;
+}

@@ -1,0 +1,112 @@
+/*
+ * Bootstrap Customize Variables
+ */
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+// options
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: false;
+$enable-grid-classes: true;
+$enable-print-styles: true;
+
+// Customize color system
+$gray-100: $gray-lightester;
+$gray-200: $gray-lightest;
+$gray-300: $gray-lighter;
+$gray-400: $gray-light;
+$gray-500: $gray;
+$gray-600: $gray-dark;
+$gray-700: $gray-darker;
+$gray-800: $gray-darkest;
+$gray-900: $gray-darkester;
+
+// Update theme colors
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":         $primary-color,
+    "secondary":       $secondary-color,
+    "tertiary":        $tertiary-color,
+    "success":         $success-color,
+    "info":            $info-color,
+    "warning":         $warning-color,
+    "danger":          $danger-color,
+    "gray-lightester": $gray-100,
+    "gray-lightest":   $gray-200,
+    "gray-lighter":    $gray-300,
+    "gray-light":      $gray-400,
+    "gray":            $gray-500,
+    "gray-dark":       $gray-600,
+    "gray-darker":     $gray-700,
+    "gray-datkest":    $gray-800,
+    "gray-darkester":  $gray-900
+  ),
+  $theme-colors
+);
+
+// Customize the grid columns
+// $grid-columns: 16;
+// $grid-gutter-width: 30px;
+
+// Modify the default breakpoints
+$grid-breakpoints: (
+  xs: 0,     // Extra small screen / phone
+  sm: 480px, // Small screen / phone
+  md: 768px, // Medium screen / tablet
+  lg: 992px, // Large screen / desktop
+  xl: 1200px // Extra large screen / wide desktop
+);
+
+// $container-max-widths: (
+//   sm: 100%,
+//   md: 100%,
+//   lg: 100%,
+//   xl: 1140px
+// ) !default;
+
+@include _assert-ascending($container-max-widths, '$container-max-widths');
+
+// Customize the spacing rules
+$spacer: 1rem;
+$spacers: () !default;
+$spacers: map-merge(
+    (
+      0: 0,
+      1: ($spacer * .25),
+      2: ($spacer * .5),
+      3: $spacer,
+      4: ($spacer * 1.5),
+      5: ($spacer * 3)
+    ),
+    $spacers
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+$sizes: map-merge(
+    (
+      10: 10%,
+      20: 20%,
+      25: 25%,
+      30: 30%,
+      40: 40%,
+      50: 50%,
+      60: 60%,
+      70: 70%,
+      75: 75%,
+      80: 80%,
+      90: 90%,
+      100: 100%,
+      auto: auto
+    ),
+    $sizes
+);
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-base: 'Noto Sans Korean', 'Roboto', Arial, Dotum, sans-serif !default;
