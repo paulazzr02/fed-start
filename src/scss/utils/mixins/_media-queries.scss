@@ -1,6 +1,6 @@
 /*
  * MIXIN: Responsive Media Queries.
- * _variables.scss 에서 $breakpoints 변수값 import 함.
+ * $breakpoints 변수값은 _variables.scss 에 지정함.
  * USAGE:
  * @include respond-to(medium) { color: green; }
  */

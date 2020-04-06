@@ -6,15 +6,18 @@
 </head>
 
 <body>
-<div class="l-wrap">
-  @@include('header.html')
+  <div class="page-wrap">
+    <a class="skip" href="#content"><span class="text">본문 바로가기</span></a>
 
-  <main class="l-main" id="content"></main>
+    @@include('header.html')
+    @@include('sidebar.html')
+    <main class="content-wrap" id="content">
+      <!-- Content here -->
+    </main>
+    @@include('footer.html')
+  </div>
 
-  @@include('footer.html')
-</div>
-
-@@include('script.html')
+  @@include('script.html')
 </body>
 
 </html>

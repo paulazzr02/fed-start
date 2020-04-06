@@ -22,10 +22,10 @@ $info-color:        green !default;
 $warning-color:     yellow !default;
 $danger-color:      #f65854 !default;
 
-$body-color:        $gray !default;
+$body-color:        $gray-dark !default;
 $link-color:        $body-color !default;
 $link-hover-color:  $primary-color !default;
-$border-color:      $gray !default;
+$border-color:      $gray-light !default;
 
 // Grid
 $breakpoints: (
@@ -37,8 +37,12 @@ $breakpoints: (
 );
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px
+  // sm: 460px,
+  // md: 720px,
+  // lg: 960px,
+  // xl: 1140px
+  sm: map-get($breakpoints, sm),
+  md: map-get($breakpoints, md),
+  lg: map-get($breakpoints, lg),
+  xl: map-get($breakpoints, xl)
 );

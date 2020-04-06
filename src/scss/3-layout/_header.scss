@@ -1,16 +1,149 @@
-/*
- * Header
- */
+/* == LAYOUTS > HEADER == */
 
-.h1 {
-  margin: 25px 0 30px;
-  padding-bottom: 15px;
+$header-item-height: 40px;
+
+.header-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  min-height: $page-with-header-fixed;
+  padding: 0 15px;
   border-bottom: 1px solid $border-color;
+  background-color: #fff;
+  @include clearfix;
+
+  .col-left,
+  .col-right {
+    display: inline-block;
+  }
+
+  .col-left {
+    float: left;
+    width: $contextual-sidebar-active;
+  }
+
+  .col-right {
+    float: right;
+    width: calc(100% - #{$contextual-sidebar-active});
+    text-align: right;
+  }
 }
 
-.logo {
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  transform: translateY(-50%);
+// 햄버거 버튼
+.hamburger-btn {
+  display: inline-block;
+  height: $page-with-header-fixed;
+  margin-left: -15px;
+  padding: 15px;
+  font-size: 24px;
+}
+
+// 로고
+.logo-link {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+// 통합검색
+.search-input-wrap {
+  display: inline-block;
+  position: relative;
+  width: calc(100% - 100px);
+}
+
+.search-input-group {
+  .search-input {
+    z-index: 1;
+    width: 180px;
+    height: 40px; // ie 에서 높이 못잡음
+    max-width: 500px;
+    padding-right: 30px;
+    padding-left: 15px;
+    line-height: 40px;
+    font-size: 14px;
+    // background-color: #58cacd;
+    // color: #fff;
+    border-radius: $border-radius;
+    transition: width 0.2s ease-in-out;
+
+    &::placeholder {
+      // color: #fff;
+    }
+  }
+
+  /* When the input field gets focus, change its width to 100% */
+  .search-input:focus {
+    width: 100%;
+  }
+
+  .search-icon {
+    content: '\e97a';
+    font-family: 'xeicon' !important;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    // z-index: -1;
+    transform: translateY(-50%);
+    // color: #fff;
+    pointer-events: none;
+  }
+
+  //.search-btn {
+  //  left: inherit;
+  //  right: 0;
+  //  width: 40px;
+  //}
+}
+
+// 사용자
+.user-dropdown {
+  display: inline-block;
+
+  .dropdown-btn {
+    margin-right: -15px;
+    padding: 12px 15px;
+
+    // reset bootstrap dropdown-toggle arrow
+    &:after {
+      content: '\e942';
+      font-family: 'xeicon' !important;
+      border: none;
+      vertical-align: middle;
+    }
+  }
+
+  .dropdown-menu {
+    min-width: 120px;
+    border: none;
+    box-shadow: 0 0 30px 0 rgba(45, 47, 57, 0.15);
+    &.show {
+      top: -6px !important;
+    }
+  }
+
+  .dropdown-item {
+    min-width: 100px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .dropdown-item + .dropdown-item {
+    border-top: 1px solid rgba(45, 47, 57, 0.15);
+  }
+
+  .user-name {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: $gray;
+    color: #fff;
+    cursor: pointer;
+  }
 }

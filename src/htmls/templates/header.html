@@ -1,25 +1,31 @@
-<!-- skipToContents -->
-<a class="skip-to-content" href="#content">
-  <span class="skip-text">본문 바로가기 (Skip to content)</span>
-</a>
-
-<header class="page-header">
-
-  <div class="container-limited">
-
+<header class="header-wrap">
+  <div class="col-left">
+    <!-- hamburger button -->
+    <button type="button" class="hamburger-btn js-toggle-sidebar"><i class="xi-bars"></i><span class="sr-only">사이드메뉴 접기/펼치기</span></button>
     <!-- logo -->
-    <a href="home.html" class="brand-top">
-      <img src="images/logo-top.png" data-rjs="2" alt="상단로고">
-    </a>
-
-    <!-- menus -->
-    <nav class="navbar-menu">
-      <ul class="menu-top" id="main-menu">
-        <li class="menu-item"><a href="#" class="menu-link">메뉴 1</a></li>
-        <li class="menu-item"><a href="#" class="menu-link">메뉴 2</a></li>
-      </ul>
-    </nav>
-
+    <a href="#" class="logo-link"><img src="./images/logo-dif-navigator.png" data-rjs="3" alt="logo"></a>
   </div>
+  <div class="col-right">
+    <!-- search form -->
+    <div class="search-input-wrap">
+      <form action="">
+        <div class="search-input-group">
+          <i class="search-icon xi-search"></i>
+          <input type="text" class="search-input" placeholder="search">
+          <!--<button type="submit" class="search-btn"><i class="xi-search"></i><span class="sr-only">검색</span></button>-->
+        </div>
+      </form>
+    </div>
 
+    <!-- user dropdown -->
+    <div class="dropdown user-dropdown">
+      <button class="dropdown-btn dropdown-toggle" data-toggle="dropdown">
+        <span class="user-name">username</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="#" class="dropdown-item">프로필 수정</a>
+        <a href="#" class="dropdown-item">로그아웃</a>
+      </div>
+    </div>
+  </div>
 </header>

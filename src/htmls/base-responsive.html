@@ -6,15 +6,19 @@
 </head>
 
 <body>
-<div class="l-wrap">
-  @@include('header-responsive.html')
+  <div class="body-overlay"></div>
+  <div class="page-wrap">
+    <a class="skip" href="#content"><span class="text">본문 바로가기</span></a>
 
-  <main class="l-main" id="content"></main>
+    @@include('header-responsive.html')
+    @@include('sidebar.html')
+    <main class="content-wrap" id="content">
+      <!-- Content here -->
+    </main>
+    @@include('footer-responsive.html')
+  </div>
 
-  @@include('footer-responsive.html')
-</div>
-
-@@include('script-responsive.html')
+  @@include('script-responsive.html')
 </body>
 
 </html>

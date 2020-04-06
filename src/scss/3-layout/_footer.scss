@@ -7,8 +7,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 100px;
-  font-size: 12px;
+  height: $page-with-footer-fixed;
+  border-top: 1px solid $border-color;
+  font-size: 13px;
+  background-color: #fff;
+  text-align: center;
 }
 
 
@@ -30,17 +33,11 @@
 }
 
 .copyright {
-  line-height: 1.25;
-  font-size: 12px;
-  text-align: center;
+  // line-height: 1.25;
 }
 
-
-.bg-primary .page-footer {
-  color: #fff;
-  text-align: center;
-
-  a {
-    color: #fff;
-  }
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
 }

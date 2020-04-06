@@ -2,225 +2,177 @@
  * Sidebar
  */
 
-$sidebar-padding-x: 30px;
-$sidebar-text-color: #6b7889;
+@import '../vendors/simple-scrollbar';
 
-$context-header-height: 240px;
-$context-footer-height: 100px;
+$sidebar-header-height: 60px;
+$sidebar-footer-height: 50px;
+$sidebar-padding-x: 15px;
 
+// 사이드바
 .sidebar {
-  z-index: 10;
-  height: 100%;
-  background-color: #fff;
-  color: $sidebar-text-color;
-  transition: .2s ease-in;
-  // transition: width 0.3s, left 0.3s;
-  // position: absolute;
-  // z-index: 1;
+  z-index: 1;
+  overflow-x: hidden;
 }
 
-.contextual-sidebar {
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // width: $contextual-sidebar-width;
-  // box-shadow: 1px 1px 0 $border-color;
-  // //box-shadow: inset -1px 0 0 $border-color;
-  // background-color: #fff;
-  // color: $sidebar-text-color;
-  // transform: translate3d(0, 0, 0);
-  // overflow: hidden;
+.sidebar-left {
+  left: 0;
+}
 
+.sidebar-fixed {
   position: fixed;
-  top: 0;
-  width: $contextual-sidebar-width;
-  border-right: 1px solid hotpink;
-  // border-right: 1px solid $border-color;
-  box-shadow: 0 3px 9px 0 rgba(169,184,200,.15);
-  -webkit-box-shadow: 0 3px 9px 0 rgba(169,184,200,.15);
-  -moz-box-shadow: 0 3px 9px 0 rgba(169,184,200,.15);
-
-  a,
-  button {
-    transition: background 0.2s, color 0.2s;
-  }
-
-  a {
-    color: $sidebar-text-color;
-    text-emphasis: none;
-  }
-
-  i + span {
-    margin-left: 10px;
-  }
-
-  ul {
-    padding-left: 0;
-    list-style: none;
-  }
-
-  li {
-    white-space: nowrap;
-
-    a {
-      transition: padding 0.3s;
-    }
-  }
-
-  .user-avatar {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-    border-radius: 50%;
-    transition: width 0.3s, height 0.3s;
-  }
-
-  .user-name {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #374358;
-  }
-
-  .user-email {
-    font-size: 12px;
-    @extend .text-truncate;
-  }
-
-  .btn-plus {
-    margin: 10px 30px;
-    border-radius: 0.438rem;
-    @extend .btn;
-    @extend .btn-primary;
-  }
+  top: $page-with-header-fixed + 1;
+  bottom: 0;
 }
 
-.contextual-sidebar-header,
-.contextual-sidebar-footer {
-  padding: 0 $sidebar-padding-x;
-  background-color: #fff;
+.sidebar-header,
+.sidebar-footer,
+.sidebar-body {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-right: 1px;
 
   a:hover, a:focus {
-    // color: $darker;
+    color: $gray-darker;
     text-decoration: none;
   }
 }
 
-.contextual-sidebar-header {
-  width: calc(100% - 1px);
-  padding: $sidebar-padding-x;
+.sidebar-header,
+.sidebar-footer {
+  padding-right: $sidebar-padding-x;
+  padding-left: $sidebar-padding-x;
+}
 
-  a,
-  button,
-  [class*=btn] {
-    transition: padding 0.3s;
-    font-size: 15px;
-    text-align: center;
+// 사이드바 헤더
+.sidebar-header {
+  top: 0;
+  height: $sidebar-header-height;
+}
+
+// 사이드바 푸터
+.sidebar-footer {
+  bottom: 0;
+  height: $sidebar-footer-height;
+}
+
+// 사이드바 바디
+.sidebar-body {
+  top: $sidebar-header-height;
+  bottom: $sidebar-footer-height;
+}
+
+// 메뉴 사이드바
+.nav-sidebar {
+  @extend .sidebar;
+  @extend .sidebar-fixed;
+  @extend .sidebar-left;
+  width: $contextual-sidebar-active;
+  font-size: 12px;
+  background-color: #f9fafb;
+  white-space: nowrap;
+  box-shadow: inset -1px 0 0 $border-color;
+  transition: transform 0.2s ease-in-out;
+
+  .nav-icon + .nav-text {
+    margin-left: 8px;
   }
+}
 
+// PC 화면 사이드바
+.contextual-sidebar .nav-sidebar {
+  transform: translateX(0);
+
+}
+.contextual-sidebar-active .nav-sidebar {
+  transform: translateX(-100%);
+}
+
+// 타이틀
+.sidebar-title {
+  margin-top: 30px;
+  font-size: 14px;
+  color: $gray-darker;
+  white-space: nowrap;
+}
+
+// 메인 메뉴
+.sidebar-nav-list {
+  list-style: none;
+
+  // 메뉴 링크
   a {
     display: block;
-  }
-}
-
-.contextual-sidebar-footer {
-  position: absolute;
-  right: 1px;
-  bottom: 0;
-  left: 0;
-}
-
-.contextual-sidebar-nav {
-  height: -webkit-calc(100% - #{$context-header-height} - #{$context-footer-height});
-  height:    -moz-calc(100% - #{$context-header-height} - #{$context-footer-height});
-  height:         calc(100% - #{$context-header-height} - #{$context-footer-height});
-  overflow-x: hidden;
-
-  .nav-list {
-    a {
-      display: block;
-      overflow-x: hidden;
-      padding: 10px $sidebar-padding-x;
-      line-height: 1;
-      font-size: 16px;
-      font-weight: 500;
-      color: $sidebar-text-color;
-
-      i {
-        font-size: 26px;
-        vertical-align: middle;
-      }
-
-      i + span {
-        vertical-align: middle;
-      }
-    }
-
-    a:hover,
-    a:focus {
-      color: $primary;
-      text-decoration: none;
-    }
-
-    a.disabled,
-    a:disabled {
-      color: #d2d8e3;
-    }
-
-    .nav-divider {
-      padding: 10px 30px;
-
-
-      &:before {
-        content: '';
-        display: block;
-        border-top: 1px solid $border-color;
-      }
-    }
-
-    .badge {
-      vertical-align: middle;
-    }
-
-    span + .badge {
-      margin-left: 3px;
-    }
-
-    li.active > a {
-      color: $primary;
-      text-decoration: none;
-    }
-
-    li:last-child {
-      margin-top: 10%;
-    }
-  }
-}
-
-.close-nav-button {
-  display: none;
-  transition: width 0.3s;
-  position: fixed;
-  top: 0;
-  width: $contextual-sidebar-width - 1px;
-  height: 40px;
-  padding: 4px 10px;
-  background-color: #fff;
-  border: 0;
-  border-bottom: 1px solid #e5e5e5;
-
-  &:hover,
-  &:hover {
-    background-color: #fafafa;
-    color: #2e2e2e;
-  }
-
-  i {
-    margin-right: 8px;
-  }
-
-  .collapse-text {
+    padding: 4px $sidebar-padding-x;
+    font-size: 12px;
     white-space: nowrap;
-    overflow: hidden;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
   }
+
+  // 1 뎁스
+  > li {
+    > a {
+      position: relative;
+      padding-top: 10px;
+      padding-right: $sidebar-padding-x * 3;
+      padding-bottom: 10px;
+      font-size: 14px;
+      color: $gray-darker;
+    }
+
+    &.active > a,
+    > a.active {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+
+  // 2 뎁스
+  ul {
+    width: 100%;
+    background-color: #eff0f2;
+
+    > li {
+      > a {
+        padding-left: $sidebar-padding-x + 25px;
+      }
+
+      &:first-child > a {
+        padding-top: 10px;
+      }
+
+      &:last-child > a {
+        padding-bottom: 12px;
+      }
+
+      &:active > a,
+      &.active > a {
+        color: $primary;
+      }
+    }
+  }
+
+  .nav-icon,
+  .arrow-icon {
+    position: relative;
+    top: 2px;
+    font-size: 16px;
+  }
+
+  .arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: $sidebar-padding-x * 2;
+    transform: translateY(-50%);
+  }
+}
+
+// 카피라이트
+.sidebar-copyright {
+  padding-top: 10px;
 }
