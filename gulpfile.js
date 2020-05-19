@@ -7,11 +7,10 @@ const {
   CSS,
   ESM,
   FAVICONS,
-  FONTS,
   HTMLS,
   ICONS,
   IMAGES,
-  JS,
+  ES6,
   PATH,
 } = require('./gulp-tasks/config.json');
 const production = require('./gulp-tasks/helper/mode');
@@ -23,11 +22,10 @@ const {
   clean,
   css,
   favicons,
-  fonts,
   htmls,
   icons,
   images,
-  js,
+  es6,
   serve,
 } = require('./gulp-tasks');
 
@@ -36,7 +34,7 @@ const {
 const archiveTask = series(archive);
 
 /* Build */
-const buildTask = series(clean, parallel(css, favicons, fonts, icons, images, js, htmls));
+const buildTask = series(clean, parallel(css, favicons, icons, images, es6, htmls));
 
 /* Watching */
 const watchTask = series(buildTask, serve, () => {
@@ -44,8 +42,6 @@ const watchTask = series(buildTask, serve, () => {
   watch(PATH.src + CSS.src, series(css, browserReload));
   // favicons
   watch(PATH.src + FAVICONS.src, series(favicons, browserReload));
-  // fonts
-  watch(PATH.src + FONTS.src, series(fonts, browserReload));
   // htmls
   watch(PATH.src + HTMLS.src, series(htmls, browserReload));
   // icons
@@ -53,7 +49,7 @@ const watchTask = series(buildTask, serve, () => {
   // images
   watch(PATH.src + IMAGES.src, series(images, browserReload));
   // javascript
-  watch(PATH.src + JS.src, series(js, browserReload));
+  watch(PATH.src + ES6.src, series(es6, browserReload));
 });
 
 /* Exports */

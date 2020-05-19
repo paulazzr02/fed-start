@@ -58,11 +58,11 @@
 <div class="wrap">
   <h1><%= fontName %> - glyphs list</h1>
   <ul class="glyphs-list">
-    <% _.each(glyphs, function(inco){ %>
+    <% _.each(glyphs, function(ic){ %>
     <li>
-      <i class="inco-<%= inco.name %>"></i>
-      <code>\<%= inco.unicode[0].charCodeAt(0).toString(16) %></code>
-      <input type="text" value="inco-<%= inco.name %>"/>
+      <i class="ic-<%= ic.name %>"></i>
+      <code>\<%= ic.unicode[0].charCodeAt(0).toString(16) %></code>
+      <input type="text" value="ic-<%= ic.name %>"/>
     </li>
     <% }) %>
   </ul>

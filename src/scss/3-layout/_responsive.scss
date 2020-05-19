@@ -1,65 +1,35 @@
-body {
-  @include respond-to(handhelds) { background-color: #10375c; }
-  @include respond-to(mobile) { background-color: #844685; }
-  @include respond-to(tablet) { background-color: #f3c623; }
-  @include respond-to(desktop) { background-color: #faf4ff; }
+//
+// Responsive styles
+// --------------------------------------------------
+
+/**
+ * @section Breakpoints
+ * 자바스크립트에서 분기점 체크용도
+ * 화면에 노출되지 않음
+ */
+
+body:before {
+	content: 'xs';
+	display: none;
+	visibility: hidden;
 }
-
-// 모바일에서...
-// Medium devices (tablets, less than 992px)
-@include respond-to(mobile) {
-
-  .contextual-sidebar-active .body-overlay {
-    display: block;
-  }
-
-  // 통합 검색
-  .search-input-wrap {
-    position: fixed;
-    top: 12px;
-    right: 15%;
-    left: 12%;
-    width: 73%;
-    z-index: 9;
-  }
-
-  .search-input-group {
-    .search-input {
-      width: 40px;
-      background-color: transparent;
-      transition: color 0.2s ease-in-out;
-      &::placeholder {
-        color: transparent;
-      }
-      &:focus {
-        background-color: #58cacd;
-        &::placeholder {
-          color: #fff;
-        }
-      }
-
-      &:focus + .search-icon {
-        z-index: 1;
-        color: $body-color;
-      }
-    }
-  }
-
-  .user-dropdown {
-    .dropdown-btn:after {
-      display: none;
-    }
-  }
-
-  // 사이드바
-  .nav-sidebar {
-    transform: translateX(-100%);
-  }
-  .contextual-sidebar-mobile .nav-sidebar {
-    transform: translateX(-100%);
-  }
-  .contextual-sidebar-active .nav-sidebar {
-    transform: translateX(0);
-  }
-
+@media (min-width: #{map-get($breakpoints, sm)}) {
+	body:before {
+		content: 'sm';
+	}
+}
+@media (min-width: #{map-get($breakpoints, md)}) {
+	body:before {
+		content: 'md';
+	}
+}
+@media (min-width: #{map-get($breakpoints, lg)}) {
+	body:before {
+		content: 'lg';
+	}
+}
+@media (min-width: #{map-get($breakpoints, xl)}) {
+	body:before {
+		content: 'xl';
+	}
 }

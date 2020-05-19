@@ -3,7 +3,7 @@ const browserSync = require('browser-sync');
 /* Configuration */
 const {
   APP,
-  PATH,
+  // PATH,
   SERVER,
 } = require('./config.json');
 
@@ -11,7 +11,7 @@ const {
 const syncOpts = {
   static: {
     server     : {
-      baseDir  : PATH.dest,
+      baseDir  : SERVER.base,
     },
     port       : SERVER.port,
     // directory  : true,

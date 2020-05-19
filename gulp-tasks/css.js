@@ -35,7 +35,7 @@ function css() {
         cascade: false,
       }),
     )
-    .pipe($.if(production, cleanCss({ compatibility: 'ie9' })))
+    .pipe($.if(production, cleanCss({ compatibility: 'ie10' })))
     .pipe(dest(PATH.dest + CSS.dest, { sourcemaps: '.' }));
 }
 

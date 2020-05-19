@@ -3,46 +3,27 @@
  */
 
 // Color system
-$gray-lightester: #f8f9fa !default;
-$gray-lightest:   #e9ecef !default;
-$gray-lighter:    #dee2e6 !default;
-$gray-light:      #ced4da !default;
-$gray:            #adb5bd !default;
-$gray-dark:       #6c757d !default;
-$gray-darker:     #495057 !default;
-$gray-darkest:    #343a40 !default;
-$gray-darkester:  #212529 !default;
+$white:    #fff !default;
+$gray-100: #f5f5f5 !default;
+$gray-200: #efefef !default;
+$gray-300: #d3d3d3 !default;
+$gray-400: #ced4da !default;
+$gray-500: #a3a3a3 !default;
+$gray-600: #777777 !default;
+$gray-700: #555555 !default;
+$gray-800: #333333 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
 
-// Theme colors
-$primary-color:     #00babc !default;
-$secondary-color:   $gray !default;
-$tertiary-color:    purple !default;
-$success-color:     $primary-color !default;
-$info-color:        green !default;
-$warning-color:     yellow !default;
-$danger-color:      #f65854 !default;
-
-$body-color:        $gray-dark !default;
-$link-color:        $body-color !default;
-$link-hover-color:  $primary-color !default;
-$border-color:      $gray-light !default;
 
 // Grid
 $breakpoints: (
-  xs: 0,   // Extra small screen / phone
-  sm: 480, // Small screen / phone
-  md: 768, // Medium screen / tablet
-  lg: 992, // Large screen / desktop
-  xl: 1200 // Extra large screen / wide desktop
+  xs: 0,     // Extra small screen / phone
+  sm: 480px, // Small screen / phone
+  md: 768px, // Medium screen / tablet
+  lg: 992px, // Large screen / desktop
+  xl: 1200px // Extra large screen / wide desktop
 );
 
-$container-max-widths: (
-  // sm: 460px,
-  // md: 720px,
-  // lg: 960px,
-  // xl: 1140px
-  sm: map-get($breakpoints, sm),
-  md: map-get($breakpoints, md),
-  lg: map-get($breakpoints, lg),
-  xl: map-get($breakpoints, xl)
-);
+// Typo
+$font-family-base: 'Noto Sans Korean', 'Roboto', Arial, Dotum, sans-serif !default;

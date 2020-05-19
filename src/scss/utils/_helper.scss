@@ -3,6 +3,14 @@
  * 클래스, 기타 도우미들
  */
 
+// only for screen-reader
+.sr-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  left: -9999px;
+  top: -9999px;
+}
+
 // 마우스 오버 시 링크에 언더라인 주기
 .hover-underline {
   position: relative;

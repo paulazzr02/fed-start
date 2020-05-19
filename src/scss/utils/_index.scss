@@ -4,7 +4,9 @@
  * 전역 변수, 함수, 믹스인 등
  */
 
+@import 'functions';
 @import 'mixins/index';
 
-@import 'variables';
 @import 'helper';
+
+@import 'variables';

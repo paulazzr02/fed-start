@@ -1,7 +1,7 @@
 {
   "COMPATIBILITY": [
     "last 2 versions",
-    "ie >= 9",
+    "ie >= 10",
     "ios >= 10"
   ],
   "CSS": {
@@ -31,16 +31,22 @@
     "src": "/images/**/*.{gif,jpg,jpeg,png,svg}",
     "dest": "/images"
   },
+  "ES6": {
+    "entry": "/es6/main.js",
+    "src": "/es6/**/*.js",
+    "dest": "/js"
+  },
   "JS": {
     "src": "/js/**/*.js",
     "dest": "/js"
   },
   "PATH": {
     "src": "./src",
-    "dest": "./dist",
+    "dest": "./public/dist",
     "vendor": "./node_moduls"
   },
   "SERVER": {
+    "base": "./public",
     "port": 3000
   },
   "APP": {

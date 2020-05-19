@@ -13,8 +13,8 @@
 }
 
 
-[class^='inco-'],
-[class*=' inco-'] {
+[class^='ic-'],
+[class*=' ic-'] {
   display: inline-block;
   font-family: '<%= fontName %>';
   font-weight: normal;
@@ -33,8 +33,8 @@
 /*
 Glyphs list
 */
-<% _.each(glyphs, function(inco){ %>
-.inco-<%= inco.name %>:before {
-content: '\<%= inco.unicode[0].charCodeAt(0).toString(16) %>';
+<% _.each(glyphs, function(ic){ %>
+.ic-<%= ic.name %>:before {
+content: '\<%= ic.unicode[0].charCodeAt(0).toString(16) %>';
 }
 <% }) %>

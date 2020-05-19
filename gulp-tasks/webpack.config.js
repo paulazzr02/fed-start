@@ -7,19 +7,18 @@ const production = !!args.production;
 
 /* Configuration */
 const {
-  JS,
-  PATH,
+  ES6,
+  // PATH,
 } = require('./config.json');
 
-const APP_DIR = path.resolve(__dirname, '../src/js');
+const APP_DIR = path.resolve(__dirname, '../src/es6');
 const MODULES_DIR = path.resolve(__dirname, '../node_modules');
 
 const webpackConfig = {
   mode: production ? 'production' : 'development',
   devtool: !production && 'source-map',
   entry: {
-    // 'fed.bundle': PATH.src + JS.entry,
-    'fed.bundle': path.resolve(__dirname, '../src/js/main.js'),
+    'fed.bundle':  path.resolve(__dirname, '../src') + ES6.entry
   },
   output: {
     filename: '[name].js',
@@ -31,6 +30,22 @@ const webpackConfig = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.css$/,
+      //   use: ['style-loader', 'css-loader'],
+      //   include: [ MODULES_DIR ],
+      // },
+      // {
+      //   test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      //   use: [{
+      //     loader: 'file-loader',
+      //     options: {
+      //       name: '[name].[hash:8].[ext]',
+      //       outputPath: 'assets/'
+      //     }
+      //   }],
+      //   include: [ MODULES_DIR ]
+      // },
       {
         test: /\.js$/,
         include : APP_DIR,
@@ -55,22 +70,6 @@ const webpackConfig = {
           loader: 'expose-loader',
           options: '$',
         }]
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-        include: [ MODULES_DIR ],
-      },
-      {
-        test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[hash:8].[ext]',
-            outputPath: 'assets/'
-          }
-        }],
-        include: [ MODULES_DIR ]
       },
       {
         test : /bootstrap\/dist\/\/js\//,
