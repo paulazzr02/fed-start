@@ -9,6 +9,11 @@
     "dest": "/css"
   },
   "ERROR": "Error: <%= error.message %>",
+  "ES6": {
+    "entry": "/es6/main.js",
+    "src": "/es6/**/*.js",
+    "dest": "/js"
+  },
   "FAVICONS": {
     "entry": "/images/favicon-src.png",
     "dest": "/favicons"
@@ -31,10 +36,9 @@
     "src": "/images/**/*.{gif,jpg,jpeg,png,svg}",
     "dest": "/images"
   },
-  "ES6": {
-    "entry": "/es6/main.js",
-    "src": "/es6/**/*.js",
-    "dest": "/es6"
+  "JS": {
+    "src": "/js/*.js",
+    "dest": "/js"
   },
   "JS": {
     "src": "/js/**/*.js",
