@@ -8,7 +8,7 @@ const {
 
 // Archive
 function archive() {
-  return src(PATH.dest + '**/*')
+  return src(PATH.base + '**/*')
     .pipe(zip(`${process.env.npm_package_name}.zip`))
     .pipe(dest('./'));
 }

@@ -1,7 +1,7 @@
 {
   "COMPATIBILITY": [
     "last 2 versions",
-    "ie >= 10",
+    "ie >= 9",
     "ios >= 10"
   ],
   "CSS": {
@@ -34,14 +34,15 @@
   "ES6": {
     "entry": "/es6/main.js",
     "src": "/es6/**/*.js",
-    "dest": "/js"
+    "dest": "/es6"
   },
   "JS": {
     "src": "/js/**/*.js",
     "dest": "/js"
   },
   "PATH": {
-    "src": "./src",
+    "base": "./public",
+    "src": "./public/src",
     "dest": "./public/dist",
     "vendor": "./node_moduls"
   },

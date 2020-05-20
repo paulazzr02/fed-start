@@ -3,7 +3,6 @@ const browserSync = require('browser-sync');
 /* Configuration */
 const {
   APP,
-  // PATH,
   SERVER,
 } = require('./config.json');
 

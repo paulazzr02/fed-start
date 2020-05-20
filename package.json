@@ -1,8 +1,8 @@
 {
-  "name": "project-name",
-  "version": "0.0.0",
-  "description": "A description for your project",
-  "main": "./dist/your-main-js-file.js",
+  "name": "fed-starter",
+  "version": "0.0.1",
+  "description": "Front end starter that shrinks image files, convert svg file to web font, compiles sass with Gulf automation tools, and modularizes es6+ files into webpacks and maintain compatibility with the babel tool",
+  "main": "gulpfile.js",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",

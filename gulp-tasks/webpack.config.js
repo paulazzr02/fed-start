@@ -8,17 +8,20 @@ const production = !!args.production;
 /* Configuration */
 const {
   ES6,
-  // PATH,
+  PATH,
 } = require('./config.json');
 
-const APP_DIR = path.resolve(__dirname, '../src/es6');
+// const APP_DIR = path.resolve(__dirname, `../${PATH.src}/es6`);
+// const MODULES_DIR = path.resolve(__dirname, `../${PATH.vendor}`);
+const APP_DIR = path.resolve(__dirname, '../public/src/es6');
 const MODULES_DIR = path.resolve(__dirname, '../node_modules');
 
 const webpackConfig = {
   mode: production ? 'production' : 'development',
   devtool: !production && 'source-map',
   entry: {
-    'fed.bundle':  path.resolve(__dirname, '../src') + ES6.entry
+    // 'fed.bundle':  path.resolve(__dirname, `../${PATH.src}`) + ES6.entry
+    'fed.bundle':  path.resolve(__dirname, '../public/src') + ES6.entry
   },
   output: {
     filename: '[name].js',
