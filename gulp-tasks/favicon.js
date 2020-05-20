@@ -3,7 +3,7 @@ const gulpFavicons = require('gulp-favicons');
 
 /* Configuration */
 const {
-  FAVICONS,
+  FAVICON,
   PATH,
 } = require('./config.json');
 const pkg = require('../package.json');
@@ -15,7 +15,7 @@ const faviconConfig = {
   developerName: pkg.author,
   developerURL: '',
   background: '#020307',
-  path: 'favicons/',
+  path: 'favicon/',
   url: '',
   display: 'standalone',
   orientation: 'portrait',
@@ -29,10 +29,10 @@ const faviconConfig = {
 };
 
 /* FAVICONS */
-function favicons() {
-  return src(PATH.src + FAVICONS.entry, { since: lastRun(favicons), allowEmpty: true })
+function favicon() {
+  return src(PATH.src + FAVICON.entry, { since: lastRun(favicon), allowEmpty: true })
     .pipe(gulpFavicons(faviconConfig))
-    .pipe(dest(PATH.dest + FAVICONS.dest));
+    .pipe(dest(PATH.dest + FAVICON.dest));
 }
 
-module.exports = favicons;
+module.exports = favicon;

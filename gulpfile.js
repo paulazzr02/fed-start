@@ -6,8 +6,8 @@ const {
   APP,
   CSS,
   ESM,
-  FAVICONS,
-  HTMLS,
+  FAVICON,
+  HTML,
   ICONS,
   IMAGES,
   ES6,
@@ -21,8 +21,8 @@ const {
   browserReload,
   clean,
   css,
-  favicons,
-  htmls,
+  favicon,
+  html,
   icons,
   images,
   es6,
@@ -34,16 +34,16 @@ const {
 const archiveTask = series(archive);
 
 /* Build */
-const buildTask = series(clean, parallel(css, favicons, icons, images, es6, htmls));
+const buildTask = series(clean, parallel(css, favicon, icons, images, es6, html));
 
 /* Watching */
 const watchTask = series(buildTask, serve, () => {
   // css
   watch(PATH.src + CSS.src, series(css, browserReload));
   // favicons
-  watch(PATH.src + FAVICONS.src, series(favicons, browserReload));
+  watch(PATH.src + FAVICON.src, series(favicon, browserReload));
   // htmls
-  watch(PATH.src + HTMLS.src, series(htmls, browserReload));
+  watch(PATH.src + HTML.src, series(html, browserReload));
   // icons
   watch(PATH.src + ICONS.src, series(icons, browserReload));
   // images

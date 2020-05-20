@@ -14,7 +14,7 @@
     "src": "/es6/**/*.js",
     "dest": "/js"
   },
-  "FAVICONS": {
+  "FAVICON": {
     "entry": "/images/favicon-src.png",
     "dest": "/favicons"
   },
@@ -22,10 +22,10 @@
     "src": "/fonts/**/*.{eot,otf,svg,ttf,woff,woff2}",
     "dest": "/fonts"
   },
-  "HTMLS": {
-    "src": "/htmls/**/*.html",
+  "HTML": {
+    "src": "/html/**/*.html",
     "dest": "/",
-    "basePath": "/htmls/templates"
+    "basePath": "/html/templates"
   },
   "ICONS": {
     "src": "/icons/**/*.svg",

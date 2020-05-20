@@ -1,4 +1,4 @@
-const { src, dest } = require('gulp');
+const { src, dest, lastRun } = require('gulp');
 const fileinclude = require('gulp-file-include');
 const plugins = require('gulp-load-plugins');
 
@@ -9,20 +9,20 @@ const $ = plugins();
 /* Configuration */
 const {
   ERROR,
-  HTMLS,
+  HTML,
   PATH,
 } = require('./config.json');
 
 
 /* HTML */
-function htmls() {
-  return src(PATH.src + HTMLS.src, { allowEmpty: true })
+function html() {
+  return src(PATH.src + HTML.src, { since: lastRun(html), allowEmpty: true })
     .pipe($.plumber({ errorHandler: $.notify.onError(ERROR) }))
     .pipe(fileinclude({
       prefix: '@@',
-      basepath: PATH.src + HTMLS.basePath,
+      basepath: PATH.src + HTML.basePath,
     }))
-    .pipe(dest(PATH.dest + HTMLS.dest));
+    .pipe(dest(PATH.dest + HTML.dest));
 }
 
-module.exports = htmls;
+module.exports = html;
