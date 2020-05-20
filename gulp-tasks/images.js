@@ -2,6 +2,13 @@ const { src, dest, lastRun } = require('gulp');
 const mozjpeg = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
 const imagemin = require('gulp-imagemin');
+const plugins = require('gulp-load-plugins');
+
+const production = require('./helper/mode');
+
+/* Plugins */
+// { if, notify, plumber }
+const $ = plugins();
 
 /* Configuration */
 const {

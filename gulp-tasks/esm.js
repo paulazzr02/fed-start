@@ -17,16 +17,16 @@ const $ = plugins();
 /* Configuration */
 const {
   ERROR,
-  ES6,
+  ESM,
   PATH,
 } = require('./config.json');
 
-function es6() {
-  return src(PATH.src + ES6.src, { allowEmpty: true, sourcemaps: !production })
+function esm() {
+  return src(PATH.src + ESM.src, { allowEmpty: true, sourcemaps: !production })
     .pipe(named())
     .pipe($.plumber({ errorHandler: $.notify.onError(ERROR) }))
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(dest(PATH.dest + ES6.dest, { sourcemaps: '.' }));
+    .pipe(dest(PATH.dest + ESM.dest, { sourcemaps: '.' }));
 }
 
-module.exports = es6;
+module.exports = esm;

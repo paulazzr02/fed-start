@@ -1,6 +1,6 @@
 {
   "name": "fed-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Front end starter that shrinks image files, convert svg file to web font, compiles sass with Gulf automation tools, and modularizes es6+ files into webpacks and maintain compatibility with the babel tool",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -35,6 +35,7 @@
     "imagemin-pngquant": "^8.0.0",
     "node-sass": "^4.13.1",
     "rimraf": "^3.0.0",
+    "rollup": "^2.10.5",
     "style-loader": "^1.1.3",
     "underscore": "^1.9.2",
     "vinyl-named": "^1.1.0",
@@ -58,6 +59,6 @@
   "author": "Insilicogen <info@insilicogen.com> (https://www.insilicogen.com)",
   "private": true,
   "engines": {
-    "node": ">=10.17.0"
+    "node": "<=12.13.0"
   }
 }

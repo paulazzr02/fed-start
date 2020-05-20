@@ -1,7 +1,7 @@
 {
   "COMPATIBILITY": [
     "last 2 versions",
-    "ie >= 9",
+    "ie >= 10",
     "ios >= 10"
   ],
   "CSS": {
@@ -9,7 +9,7 @@
     "dest": "/css"
   },
   "ERROR": "Error: <%= error.message %>",
-  "ES6": {
+  "ESM": {
     "entry": "/es6/main.js",
     "src": "/es6/**/*.js",
     "dest": "/js"

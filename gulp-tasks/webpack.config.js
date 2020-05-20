@@ -7,7 +7,7 @@ const production = !!args.production;
 
 /* Configuration */
 const {
-  ES6,
+  ESM,
   PATH,
 } = require('./config.json');
 
@@ -20,8 +20,8 @@ const webpackConfig = {
   mode: production ? 'production' : 'development',
   devtool: !production && 'source-map',
   entry: {
-    // 'fed.bundle':  path.resolve(__dirname, `../${PATH.src}`) + ES6.entry
-    'fed.bundle':  path.resolve(__dirname, '../public/src') + ES6.entry
+    // 'fed.bundle':  path.resolve(__dirname, `../${PATH.src}`) + ESM.entry
+    'fed.bundle':  path.resolve(__dirname, '../public/src') + ESM.entry
   },
   output: {
     filename: '[name].js',
