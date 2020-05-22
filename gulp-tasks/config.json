@@ -58,7 +58,7 @@
     "server": false,
     "proxyServer": "http://127.0.0.1:8000",
     "watchFiles": [
-      "./**/*.{scss,css,html,js}",
+      "./public/**/*.{scss,css,html,js}",
       "../**/templates/**/*.html",
       "!node_modules/"
     ]

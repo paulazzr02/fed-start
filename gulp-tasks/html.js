@@ -16,7 +16,7 @@ const {
 
 /* HTML */
 function html() {
-  return src(PATH.src + HTML.src, { since: lastRun(html), allowEmpty: true })
+  return src(PATH.src + HTML.src, { allowEmpty: true })
     .pipe($.plumber({ errorHandler: $.notify.onError(ERROR) }))
     .pipe(fileinclude({
       prefix: '@@',

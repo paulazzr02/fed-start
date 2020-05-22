@@ -75,3 +75,5 @@ $ npm run build
   - Sass compilation (and minification/autoprefixing in production)
   - ES Modules (by Webpack)
   - Minification
+  - Shrinks image files
+  - Convert svg file to webfont

@@ -44,7 +44,7 @@ const watchTask = series(buildTask, serve, () => {
   // favicons
   // watch(PATH.src + FAVICON.src, series(favicon, browserReload));
   // htmls
-  watch(PATH.src + HTML.src, series(html, browserReload));
+  watch([PATH.src + HTML.src, PATH.src + HTML.basePath + '/*.html'], series(html, browserReload));
   // icons
   watch(PATH.src + ICONS.src, series(icons, browserReload));
   // images

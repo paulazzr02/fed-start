@@ -2,20 +2,19 @@
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import jQuery from 'jquery'
+import jQuery from 'jquery';
 window.$ = window.jQuery = jQuery;
-import 'retinajs/dist/retina'
-import 'bootstrap'
+import 'retinajs/dist/retina';
+import 'bootstrap';
 
-import { Dom } from './modules';
+// import { Dom } from './modules';
 
-const log  = console.log;
 const body = document.body;
 
 // Start ~!!
 const handleDomContentLoaded = () => {
 
-  log( 'DOM loaded' )
+  console.log( 'DOM loaded' )
 
 };
 window.addEventListener('DOMContentLoaded', handleDomContentLoaded);
@@ -24,7 +23,7 @@ window.addEventListener('DOMContentLoaded', handleDomContentLoaded);
 // 리사이징
 const handleResize = () => {
 
-  log( 'Done resizing' )
+  console.log( 'Done resizing' )
 
 };
 window.addEventListener('resize', handleResize);
@@ -42,7 +41,7 @@ const handleOrientationChange = () => {
       break
   }
 
-  log( 'Done orientation changing' )
+  console.log( 'Done orientation changing' )
 
 };
 window.addEventListener('orientationchange', handleOrientationChange);

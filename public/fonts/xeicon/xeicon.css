@@ -6,8 +6,8 @@
 
 @font-face {
     font-family: 'xeicon';
-    src: url("xeicon/xeicon.eot?3ka2yj");
-    src: url("xeicon/xeicon.eot?3ka2yj#iefix") format("embedded-opentype"), url("xeicon/xeicon.woff2?3ka2yj") format("woff2"), url("xeicon/xeicon.ttf?3ka2yj") format("truetype"), url("xeicon/xeicon.woff?3ka2yj") format("woff"), url("xeicon/xeicon.svg?3ka2yj#xeicon") format("svg");
+    src: url("xeicon.eot?3ka2yj");
+    src: url("xeicon.eot?3ka2yj#iefix") format("embedded-opentype"), url("xeicon.woff2?3ka2yj") format("woff2"), url("xeicon.ttf?3ka2yj") format("truetype"), url("xeicon.woff?3ka2yj") format("woff"), url("xeicon.svg?3ka2yj#xeicon") format("svg");
     font-weight: normal;
     font-style: normal;
 }

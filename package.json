@@ -1,7 +1,7 @@
 {
   "name": "fed-starter",
-  "version": "0.0.2",
-  "description": "Front end starter that shrinks image files, convert svg file to web font, compiles sass with Gulf automation tools, and modularizes es6+ files into webpacks and maintain compatibility with the babel tool",
+  "version": "0.0.3",
+  "description": "Front end starter: ES6+ transpilation, Sass compilation, Minification, Shrinks image files, etc",
   "main": "gulpfile.js",
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -10,10 +10,8 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
-    "css-loader": "^3.4.2",
     "eslint": "^7.0.0",
     "expose-loader": "^0.7.5",
-    "file-loader": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
@@ -31,11 +29,11 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.1",
+    "husky": "^4.2.5",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "node-sass": "^4.13.1",
     "rimraf": "^3.0.0",
-    "rollup": "^2.10.5",
     "style-loader": "^1.1.3",
     "underscore": "^1.9.2",
     "vinyl-named": "^1.1.0",
@@ -45,16 +43,17 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.4",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "4.5.0",
     "core-js": "^3.6.4",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
+    "regenerator-runtime": "^0.13.5",
     "retinajs": "^2.1.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "build": "gulp --production"
+    "build": "gulp --production",
+    "lint": "eslint ./public/src/es6/**/*.{js}"
   },
   "author": "Insilicogen <info@insilicogen.com> (https://www.insilicogen.com)",
   "private": true,

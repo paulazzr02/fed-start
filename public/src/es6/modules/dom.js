@@ -269,14 +269,14 @@ export const Dom = {
   scrollTo(x, y, duration = 200, easing = 'linear') {
       const startX = window.pageXOffset
           , startY = window.pageYOffset
-          , docW = dom.documentWidth()
-          , docH = dom.documentHeight()
-          , winW = dom.windowWidth()
-          , winH = dom.windowHeight()
+          , docW = Dom.documentWidth()
+          , docH = Dom.documentHeight()
+          , winW = Dom.windowWidth()
+          , winH = Dom.windowHeight()
           , offsetLeft = Math.round(docW - x < winW ? docW - winW : x)
           , offsetTop = Math.round(docH - y < winH ? docH - winH : y);
 
-      dom.animate(percent => {
+      Dom.animate(percent => {
           const scrollLeft =  Math.ceil((percent * (offsetLeft - startX)) + startX)
               , scrollTop = Math.ceil((percent * (offsetTop - startY)) + startY);
 

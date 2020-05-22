@@ -50,15 +50,12 @@ const webpackConfig = {
       //   include: [ MODULES_DIR ]
       // },
       {
-        test: /\.js$/,
-        include : APP_DIR,
+        test: /\.(js)$/,
         exclude: /(node_modules|bower_components|lib)/,
-        use: [{
-          loader: 'babel-loader',
-          // options: {
-          //   presets: ['@babel/preset-env']
-          // },
-        }]
+        use: [
+          'babel-loader',
+          // 'eslint-loader'
+        ]
       },
       {
         test: /jquery.+\.js$/,
