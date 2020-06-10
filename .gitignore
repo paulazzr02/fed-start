@@ -1,20 +1,22 @@
+# GIT Ignore
 
-# Logs
+## Logs
 *.log
 
-# Config files
+## Config files
 .idea/
 .cache/
 .sass-cache
 
-# Mac system files
+## Mac system files
 .DS_store
 
-# node_modules folder
+## node_modules folder
 node_modules
 
-# Directories
+## Directories
 dist/
+public/dist/
 
-# Packages
+## Packages
 *.zip

@@ -13,7 +13,7 @@ const {
 
 // const APP_DIR = path.resolve(__dirname, `../${PATH.src}/es6`);
 // const MODULES_DIR = path.resolve(__dirname, `../${PATH.vendor}`);
-const APP_DIR = path.resolve(__dirname, '../public/src/es6');
+const APP_DIR = path.resolve(__dirname, '../src/esm');
 const MODULES_DIR = path.resolve(__dirname, '../node_modules');
 
 const webpackConfig = {
@@ -21,7 +21,7 @@ const webpackConfig = {
   devtool: !production && 'source-map',
   entry: {
     // 'fed.bundle':  path.resolve(__dirname, `../${PATH.src}`) + ESM.entry
-    'fed.bundle':  path.resolve(__dirname, '../public/src') + ESM.entry
+    'fed.bundle':  path.resolve(__dirname, '../src') + ESM.entry
   },
   output: {
     filename: '[name].js',

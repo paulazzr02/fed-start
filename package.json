@@ -1,6 +1,6 @@
 {
   "name": "fed-starter",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Front end starter: ES6+ transpilation, Sass compilation, Minification, Shrinks image files, etc",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -29,7 +29,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.1",
-    "husky": "^4.2.5",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "node-sass": "^4.13.1",

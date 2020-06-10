@@ -72,8 +72,8 @@ $ npm run build
 ## Features include
   - Live reload in development
   - ES6+ transpilation (by Babel)
-  - Sass compilation (and minification/autoprefixing in production)
+  - Sass compilation (autoprefixing)
   - ES Modules (by Webpack)
-  - Minification
+  - CSS, JS, image files, Minification in production
   - Shrinks image files
   - Convert svg file to webfont

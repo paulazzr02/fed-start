@@ -10,8 +10,8 @@
   },
   "ERROR": "Error: <%= error.message %>",
   "ESM": {
-    "entry": "/es6/main.js",
-    "src": "/es6/**/*.js",
+    "entry": "/esm/main.js",
+    "src": "/esm/**/*.js",
     "dest": "/js"
   },
   "FAVICON": {
@@ -46,7 +46,7 @@
   },
   "PATH": {
     "base": "./public",
-    "src": "./public/src",
+    "src": "./src",
     "dest": "./public/dist",
     "vendor": "./node_moduls"
   },
@@ -58,6 +58,7 @@
     "server": false,
     "proxyServer": "http://127.0.0.1:8000",
     "watchFiles": [
+      "./src/**/*.{scss,css,html,js}",
       "./public/**/*.{scss,css,html,js}",
       "../**/templates/**/*.html",
       "!node_modules/"
