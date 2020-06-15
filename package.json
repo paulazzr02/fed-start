@@ -1,6 +1,6 @@
 {
   "name": "fed-starter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Front end starter: ES6+ transpilation, Sass compilation, Minification, Shrinks image files, etc",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -52,7 +52,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp --production",
-    "lint": "eslint ./public/src/es6/**/*.{js}"
+    "lint": "eslint ./src/esm/**/*.{js}"
   },
   "author": "Insilicogen <info@insilicogen.com> (https://www.insilicogen.com)",
   "private": true,
