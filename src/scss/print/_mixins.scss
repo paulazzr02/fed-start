@@ -1,0 +1,16 @@
+// ----------------------------------------------------------------
+// Mixins
+// ----------------------------------------------------------------
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+// Usage as a mixin
+//.element {
+//  @include clearfix;
+//}

@@ -8,8 +8,8 @@ const {
   PATH,
 } = require('./config.json');
 
-const iconfontConfig = {
-  fontName: 'incofont',
+const customFontConfig = {
+  fontName: 'customfont',
   formats: ['ttf', 'eot', 'woff', 'woff2'],
   appendCodepoints: true,
   appendUnicode: false,
@@ -21,8 +21,8 @@ const iconfontConfig = {
 /* ICONS */
 function icons() {
   return src(PATH.src + ICONS.src, { since: lastRun(icons), allowEmpty: true })
-    .pipe(iconfont(iconfontConfig)).on('glyphs', function (glyphs, options) {
-      src(PATH.src + ICONS.templates + 'incofont.css')
+    .pipe(iconfont(customFontConfig)).on('glyphs', function (glyphs, options) {
+      src(PATH.src + ICONS.templates + 'customFont.css')
       .pipe(consolidate('underscore', {
         glyphs: glyphs,
         fontName: options.fontName,
@@ -30,7 +30,7 @@ function icons() {
       }))
       .pipe(dest(PATH.dest + ICONS.dest));
 
-      src(PATH.src + ICONS.templates + 'incofont.html')
+      src(PATH.src + ICONS.templates + 'customFont.html')
       .pipe(consolidate('underscore', {
         glyphs: glyphs,
         fontName: options.fontName

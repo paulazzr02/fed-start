@@ -10,6 +10,7 @@ const {
   HTML,
   ICONS,
   IMAGES,
+  JS,
   PATH,
 } = require('./gulp-tasks/config.json');
 const production = require('./gulp-tasks/helper/mode');
@@ -25,6 +26,7 @@ const {
   html,
   icons,
   images,
+  js,
   serve,
 } = require('./gulp-tasks');
 
@@ -33,7 +35,7 @@ const {
 const archiveTask = series(archive);
 
 /* Build */
-const buildTask = series(clean, parallel(css, esm, favicon, icons, images, html));
+const buildTask = series(clean, parallel(css, esm, favicon, html, icons, images, js));
 
 /* Watching */
 const watchTask = series(buildTask, serve, () => {
@@ -49,6 +51,8 @@ const watchTask = series(buildTask, serve, () => {
   watch(PATH.src + ICONS.src, series(icons, browserReload));
   // images
   watch(PATH.src + IMAGES.src, series(images, browserReload));
+  // es5
+  watch(PATH.src + JS.src, series(js, browserReload));
 });
 
 /* Exports */

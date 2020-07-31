@@ -1,0 +1,109 @@
+/*
+ * MIXIN: Responsive Media Queries.
+ * $breakpoints 변수값은 _variables.scss 에 지정함.
+ * USAGE:
+ * @include breakpoint(handhelds) { color: green; }
+ * @include breakpoint(mobile) { color: green; }
+ * @include breakpoint(tablet) { color: green; }
+ * @include breakpoint(desktop) { color: green; }
+ * @include breakpoint(991px) { color: gray; }
+ */
+
+@mixin custom-breakpoint-device($media) {
+  @if $media == handhelds {
+    /* Landscape phones and down (<480) */
+    @media (max-width: #{map-get($breakpoints, sm)-1}) { @content; }
+    // @media (max-width: 479px) { @content; }
+  }
+  @else if $media == mobile {
+    /* Landscape phone to portrait tablet (<768) */
+    @media (max-width: #{map-get($breakpoints, md)-1}) { @content; }
+    // @media (max-width: 767px) { @content; }
+  }
+  @else if $media == tablet {
+    /* Portrait tablet to landscape and desktop (>=768, <1199) */
+    @media (min-width: #{map-get($breakpoints, md)}) and (max-width: #{map-get($breakpoints, xl)-1}) { @content; }
+    // @media (min-width: 768px) and (max-width: 1199px) { @content; }
+  }
+  @else if $media == desktop {
+    /* Large desktop (>=1200) */
+    @media (min-width: #{map-get($breakpoints, xl)}) { @content; }
+    // @media (min-width: 1200px) { @content; }
+  }
+  @else {
+    @media only screen and (max-width: #{$media}) { @content; }
+  }
+}
+
+@mixin custom-breakpoint-min($media) {
+  @if $media == xs {
+    /* Fromm portrait or landscape phones (>=0) */
+    @media (min-width: #{map-get($breakpoints, xs)}) { @content; }
+  }
+  @else if $media == sm {
+    /* Fromm portrait or landscape phones (>=480) */
+    @media (min-width: #{map-get($breakpoints, sm)}) { @content; }
+  }
+  @else if $media == md {
+    /* From landscape or portrait tablet (>=768) */
+    @media (min-width: #{map-get($breakpoints, md)}) { @content; }
+  }
+  @else if $media == lg {
+    /* From landscape tablet and laptop (>=992) */
+    @media (min-width: #{map-get($breakpoints, lg)}) { @content; }
+  }
+  @else if $media == xl {
+    /* From large desktop (>=1200) */
+    @media (min-width: #{map-get($breakpoints, xl)}) { @content; }
+  }
+  @else if $media == xxl {
+    /* From large desktop (>=1536) */
+    @media (min-width: #{map-get($breakpoints, xxl)}) { @content; }
+  }
+  @else {
+    @media only screen and (min-width: #{$media}) { @content; }
+  }
+}
+
+@mixin custom-breakpoint-max($media) {
+  @if $media == xs {
+    /* To portrait or landscape phones (<=0) */
+    @media (max-width: #{map-get($breakpoints, xs)}) { @content; }
+  }
+  @else if $media == sm {
+    /* To portrait or landscape phones (<480) */
+    @media (max-width: #{map-get($breakpoints, sm) - 1}) { @content; }
+  }
+  @else if $media == md {
+    /* To portrait tablet (<768) */
+    @media (max-width: #{map-get($breakpoints, md) - 1}) { @content; }
+  }
+  @else if $media == lg {
+    /* To landscape and desktop (<992) */
+    @media (max-width: #{map-get($breakpoints, lg) - 1}) { @content; }
+  }
+  @else if $media == xl {
+    /* To large desktop (<1200) */
+    @media (max-width: #{map-get($breakpoints, xl) - 1}) { @content; }
+  }
+  @else if $media == xxl {
+    /* To large desktop (<1536) */
+    @media (max-width: #{map-get($breakpoints, xxl) - 1}) { @content; }
+  }
+  @else {
+    @media only screen and (max-width: #{$media}) { @content; }
+  }
+}
+
+@mixin custom-breakpoint-between($media) {
+  @if $media == tablet {
+    /* Portrait tablet to landscape and desktop (>=768, <1199) */
+    @media (min-width: #{map-get($breakpoints, md)}) and (max-width: #{map-get($breakpoints, xl)-1}) { @content; }
+    // @media (min-width: 768px) and (max-width: 1199px) { @content; }
+  }
+  @else if $media == desktop {
+    /* Portrait tablet to landscape and desktop (>=992, <1199) */
+    @media (min-width: #{map-get($breakpoints, lg)}) and (max-width: #{map-get($breakpoints, xl)-1}) { @content; }
+    // @media (min-width: 992px) and (max-width: 1199px) { @content; }
+  }
+}

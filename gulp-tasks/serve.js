@@ -17,6 +17,7 @@ const syncOpts = {
     port       : SERVER.port,
     // directory  : true,
     open       : false,
+    notify     : false,
   },
   proxy: {
     proxy       : APP.proxyServer,

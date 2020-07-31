@@ -1,9 +1,20 @@
 @charset 'utf-8';
 
-@import 'utils/index';
-@import 'vendors/index';
+// Configuration
+@import 'functions';
+@import 'variables';
+@import 'mixins';
 
-@import '1-base/index';
-// @import '2-component/index';
-@import '3-layout/index';
-@import '4-pages/index';
+// Dependencies
+@import 'vendors';
+
+// Reset & base
+@import 'base';
+
+// Layout & components
+@import 'components';
+@import 'layout';
+@import 'pages';
+
+// Helpers
+@import 'helpers';

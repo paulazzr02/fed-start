@@ -20,8 +20,8 @@ const webpackConfig = {
   mode: production ? 'production' : 'development',
   devtool: !production && 'source-map',
   entry: {
-    // 'fed.bundle':  path.resolve(__dirname, `../${PATH.src}`) + ESM.entry
-    'fed.bundle':  path.resolve(__dirname, '../src') + ESM.entry
+    // 'main.fed':  path.resolve(__dirname, `../${PATH.src}`) + ESM.entry
+    'main.fed':  path.resolve(__dirname, '../src') + ESM.entry
   },
   output: {
     filename: '[name].js',

@@ -1,0 +1,28 @@
+/**
+ * Variables
+ */
+
+// Color system
+$white:    #fff !default;
+$gray-100: #f5f5f5 !default;
+$gray-200: #efefef !default;
+$gray-300: #d3d3d3 !default;
+$gray-400: #ced4da !default;
+$gray-500: #a3a3a3 !default;
+$gray-600: #777777 !default;
+$gray-700: #555555 !default;
+$gray-800: #333333 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+
+//== Grid breakpoints
+
+$breakpoints: (
+  xs: 0,      // Extra small screen / phone
+  sm: 576px,  // Small screen / phone
+  md: 768px,  // Medium screen / tablet
+  lg: 992px,  // Large screen / desktop
+  xl: 1200px, // Extra large screen / wide desktop
+  xxl: 1400px // Double extra large screen / wide desktop
+);
