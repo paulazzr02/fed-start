@@ -7,6 +7,7 @@ const favicon = require('./favicon');
 const html = require('./html');
 const icons = require('./icons');
 const images = require('./images');
+const js = require('./js');
 const serve = require('./serve');
 
 module.exports = {
@@ -19,5 +20,6 @@ module.exports = {
   html,
   icons,
   images,
+  js,
   serve,
 };
