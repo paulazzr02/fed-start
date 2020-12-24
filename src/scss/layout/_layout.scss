@@ -1,0 +1,28 @@
+// Full height
+body,
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+
+// Grid layout
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'main main'
+    'footer footer';
+  //   grid-template-columns: minmax(auto, 12em) 5fr;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr auto;
+}
+
+.grid-item.header {
+  grid-area: header;
+}
+.grid-item.main {
+  grid-area: main;
+}
+.grid-item.footer {
+  grid-area: footer;
+}

@@ -1,0 +1,99 @@
+
+// ----------------------------------------------------------------
+// Print.css
+// ----------------------------------------------------------------
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+// @Print Media
+// ----------------------------------------------------------------
+
+@media print and (color) {
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+
+  // 불필요한 섹션 제거
+  header, footer, .hero, .visual, .jumbotron, .slogan, .no-print {
+    display: none;
+  }
+
+  /* 폰트 설정 */
+  body {
+    font: 10pt/1.6 sans-serif;
+    background: white;
+    color: black;
+  }
+
+  // 이미지 제거 또는 반전
+  * {
+    color: #000;
+    background-image: none !important;
+    background-color: #fff;
+    //background: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  main {
+    background-color: #fff !important;
+  }
+
+  /* 보충 내용 추가 */
+  a[href]:after {
+    content: ' [" attr(href) "]';
+  }
+
+  abbr[title]:after {
+    content: ' [" attr(title) "]';
+  }
+
+  a[href^="#"]:after,
+  a[href^='javascript']:after {
+    content: '';
+  }
+
+  /* 페이지 나누기 */
+  section {
+    page-break-before: always;
+  }
+
+  // 열 설정
+  article {
+    page-break-before: always;
+    widows: 2;
+    column-width: 17em;
+    column-gap: 3em;
+  }
+
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1 {
+    page-break-before: auto !important;
+    -weasy-bookmark-level: none;
+    margin-top: 0 !important;
+  }
+
+  h1+p, h2+p, h3+p,
+  h1+table, h2+table, h3+table  {
+    page-break-before: avoid;
+  }
+
+  table, ul, figure, img, svg {
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-row-group;
+  }
+
+}

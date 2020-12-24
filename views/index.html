@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+<link href="/css/commons.css" rel="stylesheet"></head>
+<body>
+    <div class="grid-container wrapper">
+        <header class="grid-item header"><nav class="navbar navbar-expand-lg navbar-light bg-white global-navbar">
+    <a class="navbar-brand" href="/">App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav main-nav">
+            <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="/search" class="nav-link">Search</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav util-nav">
+            <li class="nav-item">
+                <a href="/" class="nav-link">Mypage</a>
+            </li>
+            <li class="nav-item dropdown">
+                <button class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Lang</button>
+                <div class="dropdown-menu">
+                    <button class="nav-link" type="button">KR</button>
+                    <button class="nav-link" type="button">EN</button>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="/login" class="nav-link">Login</a>
+            </li>
+        </ul>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Search</button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav></header>
+
+        <main class="grid-item main">
+            <div class="container">
+                <h1><%= title %></h1>
+            </div>
+        </main>
+
+        <footer class="grid-item footer"><p>Copyright © 2021 All rights reserved.</p>
+<address>Contact webmaster for more information. 000-0000-0000</address></footer>
+    </div>
+<script src="/js/popper.js.js"></script><script src="/js/jquery.js"></script><script src="/js/bootstrap.js"></script><script src="/js/commons.js"></script><script src="/js/index.js"></script></body>
+</html>

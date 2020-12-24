@@ -1,0 +1,21 @@
+/*
+ * functions
+ */
+
+// Function to convert px value into rem
+// USAGE:
+// body { margin: rem(20); }
+
+$browser-context: 16;
+
+@function rem($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return ($pixels / $context) * 1rem;
+}

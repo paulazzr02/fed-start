@@ -1,0 +1,32 @@
+# GIT Ignore
+
+## Logs
+*.log
+logs/
+
+## Editor & config files
+.vscode/
+.idea/
+.cache/
+.sass-cache
+bin/
+tmp/
+*.tmp
+*.bak
+
+## Mac system files
+.DS_store
+
+## node_modules folder
+node_modules
+
+## Build folder
+dist/
+
+## Packages
+*.dmg
+*.iso
+*.gz
+*.tar
+*.zip
+

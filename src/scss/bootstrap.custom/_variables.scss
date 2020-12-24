@@ -1,0 +1,43 @@
+/**
+ * Set the overriding Bootstrap variables
+ */
+
+//== Color system
+
+$gray-100: #f5f5f5; // $light
+$gray-300: #bcbcbc; // $border-color
+$gray-400: #cccccc; // $input-border-color
+$gray-600: #707070; // $secondary, $input-placeholder
+$gray-900: #232735; // $dark, $body-color
+
+$green:   #2EAF99;
+
+$primary:       #E28077;
+$secondary:     $gray-300;
+$tertiary:      #BC9375;
+
+$danger:        $red !default;
+$dark:          $gray-900;
+
+$theme-colors: (
+  "primary":      $primary,
+  "secondary":    $secondary,
+  "tertiary":     $tertiary,
+  "success":      $success,
+  "info":         $info,
+  "warning":      $warning,
+  "danger":       $danger,
+  "gray-light":   $gray-100,
+  "gray":         $gray-600,
+  "gray-dark":    $gray-900,
+);
+
+//= Spacing rules
+
+$spacer: 1rem;
+$spacers: ( 0:0 );
+@for $i from 1 through 150 {
+  $spacers: map-merge($spacers, (
+    $i: ($i * $spacer) / 16
+  ));
+}
