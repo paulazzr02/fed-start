@@ -1,7 +1,3 @@
-.global-navbar {
-  flex-wrap: nowrap;
-}
-
 @include media-breakpoint-up(lg) {
   .navbar-collapse {
     justify-content: flex-end;

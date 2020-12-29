@@ -11,6 +11,7 @@ module.exports = {
     commons: ['bootstrap', './js/main.js', './scss/main.scss'],
     index: ['./js/views/home.js'],
     about: ['./js/views/about.js'],
+    search: ['./js/views/search.js'],
   },
   output: {
     filename: 'js/[name].js',
@@ -49,17 +50,23 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              esModule: true,
+              // esModule: true,
             },
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+            },
+          },
+          // 'resolve-url-loader',
           'postcss-loader',
           'sass-loader',
         ],
       },
       //image file loader
       {
-        test: /\.(gif|png|jpe?g)$/i,
+        test: /\.(gif|png|jpe?g|svg|ico)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -67,6 +74,8 @@ module.exports = {
               name: '[name].[ext]',
               publicPath: 'images',
               outputPath: 'images',
+              emitFile: true,
+              esModule: false,
             },
           },
         ],
@@ -80,7 +89,7 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'fonts/',
-              publicPath: 'fonts',
+              esModule: false,
             },
           },
         ],
@@ -112,14 +121,21 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `css/[name].css`,
     }),
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3001,
-      proxy: 'http://localhost:3000/',
-      overlay: true,
-      stats: 'errors-only',
-      files: ['./src', './routes', './views'],
-    }),
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 3001,
+        proxy: 'http://localhost:3000/',
+        // server: { baseDir: ['dist'] },
+        files: ['./src', './routes', './views'],
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false,
+      },
+    ),
     new HtmlWebpackPlugin({
       template: 'html/index.html',
       filename: './../views/index.html',
@@ -139,6 +155,15 @@ module.exports = {
       chunks: ['commons', 'about'],
     }),
     new HtmlWebpackPlugin({
+      template: 'html/search.html',
+      filename: './../views/search.html',
+      minify: false,
+      templateParameters: {
+        title: '<%= title %>',
+      },
+      chunks: ['commons', 'search'],
+    }),
+    new HtmlWebpackPlugin({
       template: 'html/error.html',
       filename: './../views/error.html',
       minify: false,
@@ -148,7 +173,7 @@ module.exports = {
         status: '<%= error.status %>',
         stack: '<%= error.stack %>',
       },
-      chunks: ['commons', 'about'],
+      chunks: ['commons', 'error'],
     }),
     new HtmlWebpackPartialsPlugin({
       path: path.resolve(__dirname, 'src/html/partials/navbar.html'),
@@ -156,6 +181,7 @@ module.exports = {
       template_filename: [
         './../views/index.html',
         './../views/about.html',
+        './../views/search.html',
         './../views/error.html',
       ],
     }),
@@ -165,6 +191,7 @@ module.exports = {
       template_filename: [
         './../views/index.html',
         './../views/about.html',
+        './../views/search.html',
         './../views/error.html',
       ],
     }),

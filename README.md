@@ -22,14 +22,20 @@
 npm install
 ```
 
-### server & Compiles and hot-reloads for development
+### Compiles and minifies for production
+
+```
+npm run build
+```
+
+### Compiles and hot-reloads for development
 
 ```
 npm run dev
 ```
 
-### Compiles and minifies for production
+### server & Compiles and hot-reloads for development
 
 ```
-npm run build
+npm run webapp:dev
 ```

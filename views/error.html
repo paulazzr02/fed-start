@@ -6,8 +6,10 @@
     <title><%= title %></title>
 <link href="/css/commons.css" rel="stylesheet"></head>
 <body>
-    <header><nav class="navbar navbar-expand-lg navbar-light bg-white global-navbar">
-    <a class="navbar-brand" href="/">App</a>
+    <div class="wrapper grid-container">
+        <header class="header grid-item"><nav class="navbar navbar-expand-lg navbar-light bg-white global-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img src="../../images/logo-header.png" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,7 +28,7 @@
         </ul>
         <ul class="navbar-nav util-nav">
             <li class="nav-item">
-                <a href="/" class="nav-link">Mypage</a>
+                <a href="#" class="nav-link"><span class="username">홍길동</span>님</a>
             </li>
             <li class="nav-item dropdown">
                 <button class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Lang</button>
@@ -49,21 +51,21 @@
             </div>
         </div>
     </div>
-</nav></header>
-    
-    <div class="container center">
-        <h1>
-            <%= message %>
-        </h1>
-        <h2>
-            <%= error.status %>
-        </h2>
-        <p>
-            <%= error.stack %>
-        </p>
     </div>
-
-    <footer><p>Copyright © 2021 All rights reserved.</p>
-<address>Contact webmaster for more information. 000-0000-0000</address></footer>
-<script src="/js/popper.js.js"></script><script src="/js/jquery.js"></script><script src="/js/bootstrap.js"></script><script src="/js/commons.js"></script><script src="/js/about.js"></script></body>
+</nav></header>
+        
+        <div class="main grid-item">
+            <div class="container">
+                <h1><%= message %></h1>
+            <h2><%= error.status %></h2>
+            <p><%= error.stack %></p>
+            </div>
+        </div>
+        
+        <footer class="footer"><div class="container">
+    <p>Copyright © 2021 All rights reserved.</p>
+    <address>Contact webmaster for more information. 000-0000-0000</address>
+</div></footer>
+    </div>
+<script src="/js/popper.js.js"></script><script src="/js/jquery.js"></script><script src="/js/bootstrap.js"></script><script src="/js/commons.js"></script></body>
 </html>
