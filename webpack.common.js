@@ -1,5 +1,6 @@
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
@@ -59,7 +60,7 @@ module.exports = {
               url: false,
             },
           },
-          // 'resolve-url-loader',
+          'resolve-url-loader',
           'postcss-loader',
           'sass-loader',
         ],
@@ -82,17 +83,19 @@ module.exports = {
       },
       //fonts
       {
-        test: /\.(woff(2)?|ttf|eot|otf|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/',
+              // publicPath: 'fonts',
+              outputPath: 'fonts',
               esModule: false,
             },
           },
         ],
+        // include: path.resolve(__dirname, './src/fonts'),
       },
       {
         test: /\.(mp4|webm)$/,
@@ -127,7 +130,7 @@ module.exports = {
         port: 3001,
         proxy: 'http://localhost:3000/',
         // server: { baseDir: ['dist'] },
-        files: ['./src', './routes', './views'],
+        files: ['./src', './routes'],
       },
       // plugin options
       {
@@ -136,6 +139,12 @@ module.exports = {
         reload: false,
       },
     ),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'fonts', to: 'fonts' },
+        { from: 'icons', to: 'icons' },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: 'html/index.html',
       filename: './../views/index.html',

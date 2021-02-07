@@ -9,6 +9,7 @@ const app = express();
 const port = process.env.PORT || '3000';
 
 const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
 const aboutRouter = require('./routes/about');
 const searchRouter = require('./routes/search');
 
@@ -27,6 +28,7 @@ app.use(favicon(path.join(__dirname, 'favicon.ico')));
 // app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
 
 app.use('/', indexRouter);
+app.use(loginRouter);
 app.use(aboutRouter);
 app.use(searchRouter);
 

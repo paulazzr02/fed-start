@@ -10,15 +10,16 @@
 
 - src: 어플리케이션 프론트엔드 소스
 - server: 어플리케이션 API 서버 코드
-- public/dist: static 파일 공간 (css, html, img ..)
+- dist: static 파일 공간 (css, html, img ..)
 - routes : 라우팅 관련된 JavaScript 저장 공간
-- views : view page 저장
+- views : view/template page 저장 (.ejs, .html ..)
 
 ## Usage
 
-### Project package setup
+### Install dependencies
 
 ```
+cd fed-starter
 npm install
 ```
 
@@ -31,11 +32,11 @@ npm run build
 ### Compiles and hot-reloads for development
 
 ```
-npm run dev
+npm run build:dev
 ```
 
 ### server & Compiles and hot-reloads for development
 
 ```
-npm run webapp:dev
+npm run dev
 ```
