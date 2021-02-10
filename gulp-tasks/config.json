@@ -1,38 +1,28 @@
 {
   "COMPATIBILITY": [
     "last 2 versions",
-    "ie >= 10",
-    "ios >= 10"
+    "ie >= 11"
   ],
   "CSS": {
     "src": "/scss/**/*.scss",
     "dest": "/css"
   },
   "ERROR": "Error: <%= error.message %>",
-  "ESM": {
-    "entry": "/esm/main.js",
-    "src": "/esm/**/*.js",
-    "dest": "/js"
-  },
-  "FAVICON": {
-    "entry": "/images/favicon-src.png",
-    "dest": "/favicons"
-  },
-  "FONTS": {
+  "FONT": {
     "src": "/fonts/**/*.{eot,otf,svg,ttf,woff,woff2}",
     "dest": "/fonts"
   },
   "HTML": {
-    "src": "/html/**/*.html",
+    "src": "/htmls/**/*.html",
     "dest": "/",
-    "basePath": "/html/templates"
+    "basePath": "/htmls/partials"
   },
-  "ICONS": {
-    "src": "/svg/**/*.svg",
-    "dest": "/icons",
-    "templates": "/svg/templates/"
+  "ICON": {
+    "src": "/iconfonts/**/*.svg",
+    "dest": "/iconfonts",
+    "templates": "/iconfonts/templates/"
   },
-  "IMAGES": {
+  "IMG": {
     "src": "/images/**/*.{gif,jpg,jpeg,png,svg}",
     "dest": "/images"
   },
@@ -40,22 +30,23 @@
     "src": "/js/*.js",
     "dest": "/js"
   },
+  "MJS": {
+    "entry": "/mjs/main.js",
+    "src": "/mjs/**/*.js",
+    "dest": "/js"
+  },
   "PATH": {
-    "base": "./public",
     "src": "./src",
-    "dest": "./public/dist",
+    "dest": "./dist",
     "vendor": "./node_moduls"
   },
   "SERVER": {
-    "base": "./public",
-    "port": 3000
-  },
-  "APP": {
-    "server": false,
+    "base": "./dist",
+    "port": 3000,
+    "proxy": false,
     "proxyServer": "http://127.0.0.1:8000",
     "watchFiles": [
       "./src/**/*.{scss,css,html,js}",
-      "./public/**/*.{scss,css,html,js}",
       "../**/templates/**/*.html",
       "!node_modules/"
     ]

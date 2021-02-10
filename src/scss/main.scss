@@ -1,20 +1,19 @@
 @charset 'utf-8';
 
-// Configuration
+@charset 'UTF-8';
+
 @import 'functions';
 @import 'variables';
 @import 'mixins';
 
-// Dependencies
+// Bootstrap override
+@import 'bs.custom';
+
+// Vendors Override
 @import 'vendors';
 
-// Reset & base
+// App custom style
 @import 'base';
-
-// Layout & components
-@import 'components';
 @import 'layout';
+@import 'components';
 @import 'pages';
-
-// Helpers
-@import 'helpers';

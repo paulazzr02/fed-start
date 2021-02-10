@@ -2,28 +2,35 @@ const browserSync = require('browser-sync');
 
 /* Configuration */
 const {
-  APP,
-  // PATH,
   SERVER,
 } = require('./config.json');
+
+// Browser Reload
+function browserReload(done) {
+  browserSync.reload();
+  // browserSync.reload({ stream: true });
+  done();
+}
 
 // Browsersync options
 const syncOpts = {
   static: {
     server     : {
       baseDir  : SERVER.base,
-      // baseDir  : [SERVER.base, PATH.src],
+      // serveStatic: PATH.dest,
     },
     port       : SERVER.port,
-    // directory  : true,
-    open       : false,
+    directory  : false,
+    open       : true,
     notify     : false,
   },
   proxy: {
-    proxy       : APP.proxyServer,
-    files       : APP.watchFiles,
+    proxy       : SERVER.proxyServer,
+    files       : SERVER.watchFiles,
+    open        : false,
+    directory   : true,
     notify      : false,
-    ghostMode   : false,
+    // ghostMode   : false,
     ui: {
       port: SERVER.port,
     }
@@ -32,7 +39,7 @@ const syncOpts = {
 
 /* Serve */
 const serve = (done) => {
-  if (!APP.server) {
+  if (!SERVER.proxy) {
     browserSync.init(syncOpts.static);
   } else {
     browserSync.init(syncOpts.proxy);
@@ -40,4 +47,7 @@ const serve = (done) => {
   done();
 };
 
-module.exports = serve;
+module.exports = {
+  serve,
+  browserReload
+};

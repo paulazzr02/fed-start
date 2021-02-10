@@ -1,4 +1,4 @@
-const { src, dest, lastRun } = require('gulp');
+const { src, dest } = require('gulp');
 const fileinclude = require('gulp-file-include');
 const plugins = require('gulp-load-plugins');
 

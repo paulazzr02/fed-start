@@ -1,25 +1,50 @@
-const archive = require('./archive');
-const browserReload = require('./browserReload');
-const clean = require('./clean');
-const css = require('./css');
-const esm = require('./esm');
-const favicon = require('./favicon');
-const html = require('./html');
-const icons = require('./icons');
-const images = require('./images');
-const js = require('./js');
-const serve = require('./serve');
+const { series, parallel, watch } = require('gulp');
 
+const font = require('./font');
+const image = require('./image');
+const clean = require('./clean');
+const copy = require('./copy');
+const css = require('./css');
+const mjs = require('./mjs');
+const html = require('./html');
+const icon = require('./icon');
+const js = require('./js');
+const { serve, browserReload } = require('./serve');
+
+/* Configuration */
+const {
+  CSS,
+  IMG,
+  MJS,
+  HTML,
+  ICON,
+  JS,
+  PATH,
+} = require('./config.json');
+const production = require('./helper/mode');
+
+/* Build */
+const buildTask = series(clean, parallel(copy, css, font, icon, image, html, mjs, js));
+
+/* Dev */
+const devTask = series(buildTask, serve, () => {
+  // css
+  watch(PATH.src + CSS.src, series(css, browserReload));
+  // es6
+  watch(PATH.src + MJS.src, series(mjs, browserReload));
+  // image
+  watch(PATH.src + IMG.src, series(image, browserReload));
+  // html
+  watch([PATH.src + HTML.src, PATH.src + HTML.basePath + '/*.html'], series(html, browserReload));
+  // icon
+  watch(PATH.src + ICON.src, series(icon, browserReload));
+  // es5
+  watch(PATH.src + JS.src, series(js, browserReload));
+});
+
+/* Exports */
 module.exports = {
-  archive,
-  browserReload,
-  clean,
-  css,
-  esm,
-  favicon,
-  html,
-  icons,
-  images,
-  js,
-  serve,
+  default: production ? series(buildTask) : series(devTask),
+  build: buildTask,
+  dev: devTask,
 };

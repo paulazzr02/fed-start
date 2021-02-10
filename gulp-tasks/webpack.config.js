@@ -1,107 +1,124 @@
-// node modules
 const args = require('yargs').argv;
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 const production = !!args.production;
 
 /* Configuration */
 const {
-  ESM,
+  MJS,
   PATH,
 } = require('./config.json');
 
-// const APP_DIR = path.resolve(__dirname, `../${PATH.src}/es6`);
-// const MODULES_DIR = path.resolve(__dirname, `../${PATH.vendor}`);
-const APP_DIR = path.resolve(__dirname, '../src/esm');
-const MODULES_DIR = path.resolve(__dirname, '../node_modules');
-
 const webpackConfig = {
   mode: production ? 'production' : 'development',
-  devtool: !production && 'source-map',
+
   entry: {
-    // 'main.fed':  path.resolve(__dirname, `../${PATH.src}`) + ESM.entry
-    'main.fed':  path.resolve(__dirname, '../src') + ESM.entry
-  },
-  output: {
-    filename: '[name].js',
-    // publicPath: '../dist/js/'
-  },
-  resolve: {
-    extensions: ['.js', '.json'],
-    modules: [ MODULES_DIR ],
-  },
-  module: {
-    rules: [
-      // {
-      //   test: /\.css$/,
-      //   use: ['style-loader', 'css-loader'],
-      //   include: [ MODULES_DIR ],
-      // },
-      // {
-      //   test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      //   use: [{
-      //     loader: 'file-loader',
-      //     options: {
-      //       name: '[name].[hash:8].[ext]',
-      //       outputPath: 'assets/'
-      //     }
-      //   }],
-      //   include: [ MODULES_DIR ]
-      // },
-      {
-        test: /\.(js)$/,
-        exclude: /(node_modules|bower_components|lib)/,
-        use: [
-          'babel-loader',
-          // 'eslint-loader'
-        ]
-      },
-      {
-        test: /jquery.+\.js$/,
-        use: [{
-          loader: 'expose-loader',
-          options: 'window.jQuery',
-        },
-        {
-          loader: 'expose-loader',
-          options: 'jQuery',
-        }, {
-          loader: 'expose-loader',
-          options: '$',
-        }]
-      },
-      {
-        test : /bootstrap\/dist\/\/js\//,
-        // loader : 'imports?jQuery=jquery'
-        loader: 'imports?jQuery=jquery,$=jquery,this=>window',
-      },
+    'common.fed':  [
+      path.resolve(__dirname, `../${PATH.src}`) + MJS.entry
     ]
   },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+  },
+
+  module: {
+    rules: [
+      // Transpile ES6 to ES5
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+            },
+        },
+      },
+      // Bundle and CSS extract
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      // font-awesome
+      {
+        test: /font-awesome\.config\.js/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'font-awesome-loader' }
+        ]
+      },
+      // Bootstrap 4
+      {
+        test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery'
+      }
+    ]
+  },
+
+  devtool: !production && 'source-map',
+
+  resolve: {
+    extensions: ['.js'],
+    modules: [ 'node_modules' ],
+    // alias: {
+    //   jquery: 'jquery/dist/jquery.slim.min.js',
+    // }
+  },
+
   optimization: {
-    // runtimeChunk: 'single',
     splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
       cacheGroups: {
         vendors: {
-          test: MODULES_DIR,
-          chunks: 'initial',
-          name: 'vendor.bundle',
-          // reuseExistingChunk: true,
-          // minChunks: 1,
-          enforce: true,
-        }
+          test: /[\\/]node_modules[\\/]/,
+          // chunks: 'all',
+          // name: 'vendors',
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `libs/${packageName}`;
+          },
+        },
       },
     },
-    minimize: production
   },
+
   plugins: [
+    new webpack.BannerPlugin({
+      banner: `빌드 날짜: ${new Date().toLocaleString()}`,
+    }),
+    new CopyPlugin({
+      patterns: [
+        
+        { 
+          from: './node_modules/bootstrap/dist/js/bootstrap.min.js', 
+          to: 'libs' 
+        },
+        { 
+          from: './node_modules/jquery/dist/jquery.slim.min.js', 
+          to: 'libs' 
+        },
+        { 
+          from: './node_modules/popper.js/dist/umd/popper.min.js', 
+          to: 'libs' 
+        },
+        { 
+          from: './node_modules/retinajs/dist/retina.js', 
+          to: 'libs' 
+        },
+      ],
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'] // Bootstrap 4 Dependency.
+      Popper: ['popper.js', 'default']
     }),
   ],
+  externals: {
+    jquery: 'jQuery',
+  }
 };
 
 module.exports = webpackConfig;

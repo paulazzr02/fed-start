@@ -1,5 +1,4 @@
 const { src, dest } = require('gulp');
-const path = require('path');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const sass = require('gulp-sass');
@@ -35,7 +34,7 @@ function css() {
         cascade: false,
       }),
     )
-    .pipe($.if(production, cleanCss({ compatibility: 'ie10' })))
+    .pipe($.if(production, cleanCss({ compatibility: 'ie11' })))
     .pipe(dest(PATH.dest + CSS.dest, { sourcemaps: '.' }));
 }
 

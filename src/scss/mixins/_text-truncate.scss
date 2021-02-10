@@ -13,7 +13,11 @@
 // 여러 줄 자르기 스타일 (multiline)
 // ex: @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);
 
-@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
+@mixin multiline-text-truncate(
+  $lineHeight: 1.2em,
+  $lineCount: 1,
+  $bgColor: white
+) {
   position: relative;
   max-height: $lineHeight * $lineCount;
   padding-right: 1em;
@@ -40,9 +44,18 @@
   }
 }
 
+// IE not working!
+// @mixin multiline-text-truncate($lineHeight: 1.5em, $lineCount: 2) {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   display: -webkit-box;
+//   -webkit-line-clamp: $lineCount;
+//   -webkit-box-orient: vertical;
+//   line-height: $lineHeight;
+//   max-height: $lineHeight * $lineCount;
+// }
 
 @mixin text-color($color: primary, $effect: none) {
-
   @if ($color == primary) {
     color: red;
 

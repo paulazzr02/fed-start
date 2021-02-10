@@ -1,5 +1,4 @@
 const { src, dest } = require('gulp');
-// const babel = require('gulp-babel');
 // const concat = require('gulp-concat');
 // const named = require('vinyl-named');
 const plugins = require('gulp-load-plugins');
