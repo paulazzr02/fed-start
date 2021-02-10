@@ -18,7 +18,7 @@ const {
 } = require('./config.json');
 
 function js() {
-  return src(PATH.src + JS.src, { allowEmpty: true })
+  return src(PATH.public + JS.src, { allowEmpty: true })
     .pipe($.plumber({ errorHandler: $.notify.onError(ERROR) }))
     .pipe(dest(PATH.dest + JS.dest));
 }

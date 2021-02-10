@@ -8,23 +8,22 @@ const css = require('./css');
 const mjs = require('./mjs');
 const html = require('./html');
 const icon = require('./icon');
-const js = require('./js');
 const { serve, browserReload } = require('./serve');
 
 /* Configuration */
 const {
   CSS,
   IMG,
-  MJS,
   HTML,
   ICON,
   JS,
+  MJS,
   PATH,
 } = require('./config.json');
 const production = require('./helper/mode');
 
 /* Build */
-const buildTask = series(clean, parallel(copy, css, font, icon, image, html, mjs, js));
+const buildTask = series(clean, parallel(copy, css, font, icon, image, html, mjs));
 
 /* Dev */
 const devTask = series(buildTask, serve, () => {
@@ -39,7 +38,7 @@ const devTask = series(buildTask, serve, () => {
   // icon
   watch(PATH.src + ICON.src, series(icon, browserReload));
   // es5
-  watch(PATH.src + JS.src, series(js, browserReload));
+  watch(PATH.public + JS.src, series(copy, browserReload));
 });
 
 /* Exports */

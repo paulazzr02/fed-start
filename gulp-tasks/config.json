@@ -38,6 +38,7 @@
   "PATH": {
     "src": "./src",
     "dest": "./dist",
+    "public": "./public",
     "vendor": "./node_moduls"
   },
   "SERVER": {
