@@ -39,6 +39,8 @@ const devTask = series(buildTask, serve, () => {
   watch(PATH.src + ICON.src, series(icon, browserReload));
   // es5
   watch(PATH.public + JS.src, series(copy, browserReload));
+  // index.html
+  watch(PATH.public + '/index.html', series(copy, browserReload));
 });
 
 /* Exports */
