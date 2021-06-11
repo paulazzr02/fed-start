@@ -12,10 +12,7 @@
 @import 'bootstrap/scss/mixins';
 
 // Overriding Bootstrap Variables
-@import 'bs.custom/variables';
-
-// From node_modules folder
-// @import 'bootstrap/scss/bootstrap';
+@import 'custom-bootstrap/variables';
 
 // Bootstrap components from node_modules
 @import 'bootstrap/scss/root';

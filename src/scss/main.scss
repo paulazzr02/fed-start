@@ -1,19 +1,14 @@
 @charset 'utf-8';
 
-@charset 'UTF-8';
-
 @import 'functions';
 @import 'variables';
 @import 'mixins';
 
 // Bootstrap override
-@import 'bs.custom';
-
-// Vendors Override
-@import 'vendors';
+@import 'custom-bootstrap';
 
 // App custom style
 @import 'base';
 @import 'layout';
-@import 'components';
+@import 'common';
 @import 'pages';

@@ -6,18 +6,13 @@ const webpack = require('webpack');
 const production = !!args.production;
 
 /* Configuration */
-const {
-  MJS,
-  PATH,
-} = require('./config.json');
+const { MJS, PATH } = require('./config.json');
 
 const webpackConfig = {
   mode: production ? 'production' : 'development',
 
   entry: {
-    'common.fed':  [
-      path.resolve(__dirname, `../${PATH.src}`) + MJS.entry
-    ]
+    'main.fed': [path.resolve(__dirname, `../${PATH.src}`) + MJS.entry],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -31,10 +26,10 @@ const webpackConfig = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
         },
       },
       // Bundle and CSS extract
@@ -45,25 +40,23 @@ const webpackConfig = {
       // font-awesome
       {
         test: /font-awesome\.config\.js/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'font-awesome-loader' }
-        ]
+        use: [{ loader: 'style-loader' }, { loader: 'font-awesome-loader' }],
       },
       // Bootstrap 4
       {
-        test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery'
-      }
-    ]
+        test: /bootstrap\/dist\/js\/umd\//,
+        use: 'imports-loader?jQuery=jquery',
+      },
+    ],
   },
 
   devtool: !production && 'source-map',
 
   resolve: {
     extensions: ['.js'],
-    modules: [ 'node_modules' ],
+    modules: ['node_modules'],
     // alias: {
-    //   jquery: 'jquery/dist/jquery.slim.min.js',
+    //   jquery: 'jquery/dist/jquery.min.js',
     // }
   },
 
@@ -74,12 +67,14 @@ const webpackConfig = {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          // chunks: 'all',
-          // name: 'vendors',
-          name(module) {
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-            return `libs/${packageName}`;
-          },
+          chunks: 'all',
+          name: 'vendors.fed',
+          // name(module) {
+          //   const packageName = module.context.match(
+          //     /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+          //   )[1];
+          //   return `lib/${packageName}`;
+          // },
         },
       },
     },
@@ -91,34 +86,34 @@ const webpackConfig = {
     }),
     new CopyPlugin({
       patterns: [
-        
-        { 
-          from: './node_modules/bootstrap/dist/js/bootstrap.min.js', 
-          to: 'libs' 
+        // {
+        //   from: './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        //   to: 'libs',
+        // },
+        // {
+        //   from: './node_modules/popper.js/dist/umd/popper.min.js',
+        //   to: 'lib',
+        // },
+        {
+          from: './node_modules/jquery/dist/jquery.min.js',
+          to: '../lib',
         },
-        { 
-          from: './node_modules/jquery/dist/jquery.slim.min.js', 
-          to: 'libs' 
-        },
-        { 
-          from: './node_modules/popper.js/dist/umd/popper.min.js', 
-          to: 'libs' 
-        },
-        { 
-          from: './node_modules/retinajs/dist/retina.js', 
-          to: 'libs' 
-        },
+        // {
+        //   from: './node_modules/multi-clamp/MultiClamp.min.js',
+        //   to: '../lib',
+        // },
       ],
     }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      Popper: ['popper.js', 'default']
-    }),
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   Popper: ['popper.js', 'default'],
+    // }),
   ],
   externals: {
     jquery: 'jQuery',
-  }
+    // multiClamp: 'MultiClamp',
+  },
 };
 
 module.exports = webpackConfig;

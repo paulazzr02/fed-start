@@ -1,8 +1,6 @@
 const { src, dest } = require('gulp');
-// const concat = require('gulp-concat');
-// const named = require('vinyl-named');
 const plugins = require('gulp-load-plugins');
-// const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify');
 
 // const production = require('./helper/mode');
 
@@ -11,26 +9,17 @@ const plugins = require('gulp-load-plugins');
 const $ = plugins();
 
 /* Configuration */
-const {
-  ERROR,
-  JS,
-  PATH,
-} = require('./config.json');
+const { ERROR, JS, PATH } = require('./config.json');
+const production = require('./helper/mode');
 
 function js() {
-  return src(PATH.public + JS.src, { allowEmpty: true })
+  return src(PATH.src + JS.src, { allowEmpty: true })
+    .pipe($.sourcemaps.init())
     .pipe($.plumber({ errorHandler: $.notify.onError(ERROR) }))
+    .pipe($.babel({ presets: ['@babel/preset-env'] }))
+    .pipe($.if(production, uglify()))
+    .pipe($.sourcemaps.write('./', { sourceRoot: PATH.src + JS.src }))
     .pipe(dest(PATH.dest + JS.dest));
 }
-
-// function jsConcat() {
-//   return src(PATH.src + JS.src, { allowEmpty: true, sourcemaps: !production })
-//     .pipe(named())
-//     .pipe($.plumber({ errorHandler: $.notify.onError(ERROR) }))
-//     .pipe(babel())
-//     .pipe($.if(production, uglify()))
-//     .pipe(concat('main.js'))
-//     .pipe(dest(PATH.dest + JS.dest, { sourcemaps: '.' }));
-// }
 
 module.exports = js;

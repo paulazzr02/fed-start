@@ -20,8 +20,7 @@ $ `nvm install <version> --reinstall-packages-from-<version>` # Update Node Vers
 ## Folder structure
 
 - src: 프론트엔드 소스
-- src/js: ES5 소스
-- src/mjs: ES6+ 소스
+- src/mjs: ES Modules 소스
 - src/iconfonts : 아이콘폰트 변환전 svg 원본 소스
 
 ## Usage

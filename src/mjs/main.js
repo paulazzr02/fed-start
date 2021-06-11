@@ -1,47 +1,34 @@
-// FILE: main.js
-
+// IE를 위한 폴리필
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import jQuery from 'jquery';
-window.$ = window.jQuery = jQuery;
-import 'retinajs/dist/retina';
+import './polyfill';
+
+// Vendors
+// import jQuery from 'jquery';
+// window.$ = window.jQuery = jQuery;
 import 'bootstrap';
 
-// import { Dom } from './modules';
+// IE를 위한 폴리필
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import './polyfill';
 
-const body = document.body;
+// Vendors
+import 'bootstrap';
 
-// Start ~!!
-const handleDomContentLoaded = () => {
+import Controller from './controller';
+import LayoutView from './view/LayoutView';
+// import ScrollerView from './view/ScrollerView';
 
-  console.log( 'DOM loaded' )
+const layoutView = new LayoutView('body');
+// const scrollerView = new ScrollerView('.scroller');
 
-};
-window.addEventListener('DOMContentLoaded', handleDomContentLoaded);
+/**
+ * @type {Controller}
+ */
+const controller = new Controller(layoutView);
 
-
-// 리사이징
-const handleResize = () => {
-
-  console.log( 'Done resizing' )
-
-};
-window.addEventListener('resize', handleResize);
-
-
-// 기기 모션 체크
-const handleOrientationChange = () => {
-
-  switch(window.orientation) {
-    case -90: case 90:
-      body.setAttribute('data-orientation', 'landscape');
-      break;
-    default:
-      body.setAttribute('data-orientation', 'portrait');
-      break
-  }
-
-  console.log( 'Done orientation changing' )
-
-};
-window.addEventListener('orientationchange', handleOrientationChange);
+const setView = () => controller.setView();
+window.addEventListener('DOMContentLoaded', setView);
+const resizeView = () => controller.resizeView();
+window.addEventListener('resize', resizeView);
