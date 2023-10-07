@@ -1,4 +1,4 @@
-# FED Dev environment
+# FED Dev environments
 
 ## Prerequisites
 
